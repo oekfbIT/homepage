@@ -9,7 +9,7 @@ const Logo = ({ size = "md" }) => {
 
   switch (size) {
     case "sm":
-      logoSize = "250px"; // Adjust size as needed
+      logoSize = "200px"; // Adjust size as needed
       break;
     case "md":
       logoSize = "250px"; // Adjust size as needed

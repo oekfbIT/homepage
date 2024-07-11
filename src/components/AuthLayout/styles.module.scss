@@ -140,3 +140,24 @@
     max-height: 30%;
   }
 }
+
+// styles.module.scss
+.slideshow {
+  display: flex;
+  overflow: hidden;
+  .slide {
+    flex: 1;
+    a {
+      text-decoration: none;
+      img {
+        width: 100%;
+        height: auto;
+      }
+      p {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #333;
+      }
+    }
+  }
+}

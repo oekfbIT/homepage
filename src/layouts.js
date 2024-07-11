@@ -429,6 +429,21 @@ const layouts = {
             {i: 'notifications_schedule', x: 0, y: 7, w: 1, h: 1},
             {i: 'password', x: 1, y: 6, w: 1, h: 2}
         ]
+    },
+    // CUSTOMS
+    homescreen: {
+        xl: [
+            { i: 'slideshow', x: 0, y: 0, w: 4, h: 4 },  // Adjusted height
+        ],
+        lg: [
+            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+        ],
+        md: [
+            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+        ],
+        sm: [
+            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+        ]
     }
 }
 

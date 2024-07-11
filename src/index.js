@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+
 import Login from "@pages/Login";
+import HomeScreen from "@pages/homepage";
+
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@contexts/themeContext";
 import { ShopProvider } from "@contexts/shopContext";
@@ -14,8 +17,9 @@ root.render(
     <BrowserRouter>
       <ThemeProvider>
         <ShopProvider>
-          {/* <App /> */}
-          <Login />
+           {/*<App />*/}
+          {/*<Login />*/}
+            <HomeScreen />
         </ShopProvider>
       </ThemeProvider>
     </BrowserRouter>
