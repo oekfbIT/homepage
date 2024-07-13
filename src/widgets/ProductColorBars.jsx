@@ -8,7 +8,7 @@ import {useThemeProvider} from '@contexts/themeContext';
 
 const ProductColorBars = () => {
     const {theme} = useThemeProvider();
-    const trackColor = theme === 'light' ? 'body' : 'border';
+    const trackColor = theme === 'dark' ? 'body' : 'border';
 
     const data = [
         {value: 18, color: 'electro'},

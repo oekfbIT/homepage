@@ -25,7 +25,7 @@ const AuthLayout = ({ title, children }) => {
         </Spring>
         <div
           className={`${styles.cover} ${
-            theme === "light" ? styles.light : styles.dark
+            theme === "dark" ? styles.dark : styles.dark
           }`}
         >
           <div className={styles.cover_logo}>

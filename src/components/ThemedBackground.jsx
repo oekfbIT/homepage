@@ -14,7 +14,7 @@ const ThemedBackground = ({light, dark, className}) => {
 
     return (
         <div className={classNames('cover', className)}>
-            <Fade in={theme === 'light'} timeout={300}>
+            <Fade in={theme === 'dark'} timeout={300}>
                 <div>
                     <img className="cover__image" src={light} alt="background"/>
                 </div>

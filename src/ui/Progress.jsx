@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 const Progress = ({barColor = 'azure', trackColor, value, style = {}}) => {
     const {theme} = useThemeProvider();
-    const bgColor = `var(--${trackColor})` || (theme === 'light' ? 'var(--body)' : 'transparent');
+    const bgColor = `var(--${trackColor})` || (theme === 'dark' ? 'var(--body)' : 'transparent');
 
     return <LinearProgress className="progressbar"
                            variant="determinate"

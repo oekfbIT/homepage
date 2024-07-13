@@ -40,7 +40,7 @@ const PlayerVerticalProgress = () => {
                         <LabeledProgress value={item.value}
                                          label={item.label}
                                          barHeight={90}
-                                         trackColor={theme === 'light' ? 'body' : 'border'}
+                                         trackColor={theme === 'dark' ? 'body' : 'border'}
                                          key={i}/>
                     ))
                 }

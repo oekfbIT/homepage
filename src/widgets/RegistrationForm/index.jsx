@@ -1,212 +1,182 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { PatternFormat } from 'react-number-format';
 import CustomSelect from '@ui/CustomSelect'; // Adjust the import path as necessary
 import Spring from '@components/Spring';
 import classNames from 'classnames';
-import countryList from 'react-select-country-list';
-import { City } from 'country-state-city';
 import styles from './styles.module.scss';
+import ApiService from '../../networking/ApiService'; // Adjust the import path as necessary
 
 const RegistrationForm = () => {
-    const [selectedCountry, setSelectedCountry] = useState();
-    const [selectedCity, setSelectedCity] = useState();
-    const [cities, setCities] = useState([]);
+    const apiService = new ApiService();
+
+    const generatePassword = (length = 12) => {
+        const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let password = "";
+        for (let i = 0; i < length; i++) {
+            const randomIndex = Math.floor(Math.random() * charset.length);
+            password += charset[randomIndex];
+        }
+        return password;
+    };
+
     const { register, handleSubmit, formState: { errors }, reset, control } = useForm({
         defaultValues: {
-            name: '',
-            phone: '',
-            email: '',
-            birth: '',
-            country: null,
-            city: null,
-            address: '',
-            zip: ''
+            primaryContact: {
+                first: '',
+                last: '',
+                phone: '',
+                email: '',
+            },
+            secondaryContact: {
+                first: '',
+                last: '',
+                phone: '',
+                email: '',
+            },
+            teamName: '',
+            verein: '',
+            bundesland: '',
+            type: '',
+            acceptedAGB: false,
+            referCode: '',
+            initialPassword: generatePassword()
         }
     });
 
-    const getCountriesOptions = () => {
-        let countries = countryList().getData();
-        for (let i = 0; i < countries.length; i++) {
-            if (countries[i].value === 'RU') {
-                countries[i].label = 'Russia [terrorist state]';
-            }
+    const onSubmit = async (data) => {
+        try {
+            const payload = {
+                primaryContact: data.primaryContact,
+                secondaryContact: data.secondaryContact,
+                teamName: data.teamName,
+                verein: data.verein,
+                bundesland: data.bundesland.value,
+                type: data.type.value,
+                acceptedAGB: data.acceptedAGB,
+                referCode: data.referCode,
+                initialPassword: data.initialPassword
+            };
+            await apiService.post('registrations/register', payload);
+            toast.success('Registration submitted!');
+            window.location.href = '/thankyou';
+        } catch (errorInfo) {
+            toast.error('Registration failed: ' + errorInfo.message);
         }
-        return countries;
-    }
-
-    const handleCountryChange = (country) => {
-        setSelectedCountry(country);
-        setSelectedCity(null);
-        let options = [];
-        const rawData = City.getCitiesOfCountry(country.value);
-        rawData.map(item => options.push({ value: item.name, label: item.name }));
-        setCities(options);
-    }
-
-    const onSubmit = (data) => {
-        toast.success('Your changes have been successfully saved!');
-    }
+    };
 
     return (
         <Spring className="card d-flex flex-column card-padded">
-            <h2>Jetzt Registrieren</h2>
-            <p>Jetzt Registrieren</p>
             <form className={`d-flex flex-column g-20 ${styles.container}`} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.section}>
-                    <h4>Team Information</h4>
+                    <h1 style={{marginBottom: '20px'}}>Jetzt Neu Registrieren</h1>
+                    <p style={{marginBottom: '50px'}}>Wir haben viele neue Updates für die neue Saison vorbereitet!</p>
+                    <h2 style={{marginBottom: '20px'}}>Primärer Ansprechpartner</h2>
                     <div className={styles.row}>
-                        <Controller name="name"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.name})}
-                                            placeholder="Full Name"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="primaryContact.first"
+                            control={control}
+                            render={({field}) => (
+                                <input
+                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.first})}
+                                    placeholder="First Name"
+                                    {...field}
+                                />
+                            )}
+                        />
+                        <Controller
+                            name="primaryContact.last"
+                            control={control}
+                            render={({field}) => (
+                                <input
+                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.last})}
+                                    placeholder="Last Name"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                     <div className={styles.row}>
-                        <Controller name="phone"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.phone})}
-                                            placeholder="Phone"
-                                            format="+1 (###) ###-####"
-                                            mask="_"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="primaryContact.phone"
+                            control={control}
+                            render={({field}) => (
+                                <PatternFormat
+                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.phone})}
+                                    placeholder="Phone"
+                                    format="+43 (###) ###-####"
+                                    mask="_"
+                                    {...field}
+                                />
+                            )}
                         />
-                        <Controller name="email"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.email})}
-                                            placeholder="Email"
-                                            type="email"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                    </div>
-                    <div className={styles.row}>
-                        <Controller name="birth"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.birth})}
-                                            placeholder="Birth Date"
-                                            format="##/##/####"
-                                            mask="_"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                    </div>
-                </div>
-
-                <div className={styles.section}>
-                    <h4>Primary Contact Information</h4>
-                    <div className={styles.row}>
-                        <Controller name="primaryContact.first"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.primaryContact?.first})}
-                                            placeholder="First Name"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                        <Controller name="primaryContact.last"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.primaryContact?.last})}
-                                            placeholder="Last Name"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                    </div>
-                    <div className={styles.row}>
-                        <Controller name="primaryContact.phone"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.primaryContact?.phone})}
-                                            placeholder="Phone"
-                                            format="+1 (###) ###-####"
-                                            mask="_"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                        <Controller name="primaryContact.email"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.primaryContact?.email})}
-                                            placeholder="Email"
-                                            type="email"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="primaryContact.email"
+                            control={control}
+                            render={({field}) => (
+                                <input
+                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.email})}
+                                    placeholder="Email"
+                                    type="email"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                 </div>
 
                 <div className={styles.section}>
-                    <h4>Secondary Contact Information</h4>
+                    <h2 style={{marginBottom: '20px'}}>Sekundärer Ansprechpartner</h2>
                     <div className={styles.row}>
-                        <Controller name="secondaryContact.first"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.secondaryContact?.first})}
-                                            placeholder="First Name"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="secondaryContact.first"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.secondaryContact?.first })}
+                                    placeholder="First Name"
+                                    {...field}
+                                />
+                            )}
                         />
-                        <Controller name="secondaryContact.last"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.secondaryContact?.last})}
-                                            placeholder="Last Name"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="secondaryContact.last"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.secondaryContact?.last })}
+                                    placeholder="Last Name"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                     <div className={styles.row}>
-                        <Controller name="secondaryContact.phone"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.secondaryContact?.phone})}
-                                            placeholder="Phone"
-                                            format="+1 (###) ###-####"
-                                            mask="_"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="secondaryContact.phone"
+                            control={control}
+                            render={({ field }) => (
+                                <PatternFormat
+                                    className={classNames(styles.field, { 'field--error': errors.secondaryContact?.phone })}
+                                    placeholder="Phone"
+                                    format="+43 (###) ###-####"
+                                    mask="_"
+                                    {...field}
+                                />
+                            )}
                         />
-                        <Controller name="secondaryContact.email"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.secondaryContact?.email})}
-                                            placeholder="Email"
-                                            type="email"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="secondaryContact.email"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.secondaryContact?.email })}
+                                    placeholder="Email"
+                                    type="email"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                 </div>
@@ -214,60 +184,54 @@ const RegistrationForm = () => {
                 <div className={styles.section}>
                     <h4>Registration Details</h4>
                     <div className={styles.row}>
-                        <Controller name="teamName"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.teamName})}
-                                            placeholder="Team Name"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                        <Controller name="verein"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.verein})}
-                                            placeholder="Verein Name (Optional)"
-                                            {...field}
-                                        />
-                                    )}
-                        />
-                    </div>
-                    <div className={styles.row}>
                         <Controller
-                            name="country"
+                            name="teamName"
                             control={control}
-                            render={({field}) => (
-                                <CustomSelect
-                                    className={classNames(styles.field, {'field--error': errors.country})}
-                                    options={getCountriesOptions()}
-                                    value={field.value}
-                                    onChange={(value) => {
-                                        field.onChange(value);
-                                        handleCountryChange(value);
-                                    }}
-                                    placeholder="Country"
-                                    isSearchable={true}
-                                    variant="basic"
-                                    innerRef={field.ref}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.teamName })}
+                                    placeholder="Team Name"
+                                    {...field}
                                 />
                             )}
                         />
                         <Controller
-                            name="city"
+                            name="verein"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.verein })}
+                                    placeholder="Verein Name (Optional)"
+                                    {...field}
+                                />
+                            )}
+                        />
+                    </div>
+                    <div className={styles.row}>
+                        <Controller
+                            name="bundesland"
+                            control={control}
+                            render={({ field }) => (
                                 <CustomSelect
-                                    className={classNames(styles.field, {'field--error': errors.city})}
-                                    options={cities}
+                                    className={classNames(styles.field, { 'field--error': errors.bundesland })}
+                                    options={[
+                                        { value: 'wien', label: 'Wien' },
+                                        { value: 'niederoesterreich', label: 'Niederösterreich' },
+                                        { value: 'oberoesterreich', label: 'Oberösterreich' },
+                                        { value: 'salzburg', label: 'Salzburg' },
+                                        { value: 'steiermark', label: 'Steiermark' },
+                                        { value: 'burgenland', label: 'Burgenland' },
+                                        { value: 'kaernten', label: 'Kärnten' },
+                                        { value: 'tirol', label: 'Tirol' },
+                                        { value: 'vorarlberg', label: 'Vorarlberg' },
+                                        { value: 'ausgetreten', label: 'Ausgetreten' },
+                                        { value: 'auszuwerten', label: 'Auszuwerten' }
+                                    ]}
                                     value={field.value}
                                     onChange={(value) => {
                                         field.onChange(value);
-                                        setSelectedCity(value);
                                     }}
-                                    placeholder="City"
+                                    placeholder="Bundesland"
                                     isSearchable={true}
                                     variant="basic"
                                     innerRef={field.ref}
@@ -279,12 +243,12 @@ const RegistrationForm = () => {
                         <Controller
                             name="type"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <CustomSelect
-                                    className={classNames(styles.field, {'field--error': errors.type})}
+                                    className={classNames(styles.field, { 'field--error': errors.type })}
                                     options={[
-                                        {value: 'privat', label: 'Privat'},
-                                        {value: 'professional', label: 'Professional'}
+                                        { value: 'privat', label: 'Privat' },
+                                        { value: 'professional', label: 'Professional' }
                                     ]}
                                     value={field.value}
                                     onChange={field.onChange}
@@ -295,39 +259,42 @@ const RegistrationForm = () => {
                                 />
                             )}
                         />
-                        <Controller name="zip"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.zip})}
-                                            placeholder="Postal code"
-                                            {...field}
-                                        />
-                                    )}
+                        <Controller
+                            name="zip"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.zip })}
+                                    placeholder="Postal code"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                     <div className={styles.row}>
                         <Controller
                             name="acceptedAGB"
                             control={control}
-                            render={({field}) => (
-                                <PatternFormat
-                                    className={classNames(styles.field, {'field--error': errors.acceptedAGB})}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.acceptedAGB })}
+                                    type="checkbox"
                                     checked={field.value}
                                     onChange={field.onChange}
-                                    placeholder="I accept the AGB."
                                 />
                             )}
                         />
-                        <Controller name="referCode"
-                                    control={control}
-                                    render={({field}) => (
-                                        <PatternFormat
-                                            className={classNames(styles.field, {'field--error': errors.referCode})}
-                                            placeholder="Refer Code"
-                                            {...field}
-                                        />
-                                    )}
+                        <label htmlFor="acceptedAGB">I accept the AGB.</label>
+                        <Controller
+                            name="referCode"
+                            control={control}
+                            render={({ field }) => (
+                                <input
+                                    className={classNames(styles.field, { 'field--error': errors.referCode })}
+                                    placeholder="Refer Code"
+                                    {...field}
+                                />
+                            )}
                         />
                     </div>
                 </div>

@@ -12,7 +12,7 @@ const Testimonial = ({data, index}) => {
     const {theme} = useThemeProvider();
 
     return (
-        <Spring className={`${styles.container} ${theme === 'light' ? styles.light : styles.dark}`}
+        <Spring className={`${styles.container} ${theme === 'dark' ? styles.light : styles.dark}`}
                 type="slideUp"
                 index={index}>
             <span className="square">

@@ -433,18 +433,48 @@ const layouts = {
     // CUSTOMS
     homescreen: {
         xl: [
-            { i: 'slideshow', x: 0, y: 0, w: 4, h: 4 },  // Adjusted height
+            { i: 'slideshow', x: 0, y: 0, w: 4, h: 4 },  // Full width and height
         ],
         lg: [
-            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+            { i: 'slideshow', x: 0, y: 0, w: 3, h: 4 },  // Full width and height
         ],
         md: [
-            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+            { i: 'slideshow', x: 0, y: 0, w: 2, h: 4 },  // Full width and height
         ],
         sm: [
-            { i: 'slideshow', x: 0, y: 0, w: 1, h: 1 },  // Adjusted height
+            { i: 'slideshow', x: 0, y: 0, w: 1, h: 4 },  // Full width and height
         ]
+    },
+    registerscreen: {
+        xl: [
+            { i: 'registration', x: 0, y: 0, w: 4, h: 5 },
+        ],
+        lg: [
+            { i: 'registration', x: 0, y: 0, w: 3, h: 4 },
+        ],
+        md: [
+            { i: 'registration', x: 0, y: 0, w: 2, h: 4 },
+        ],
+        sm: [
+            { i: 'registration', x: 0, y: 0, w: 1, h: 4 },
+        ]
+    },
+    verificationscreen: {
+        xl: [
+            { i: 'verification', x: 0, y: 0, w: 4, h: 5 },
+        ],
+        lg: [
+            { i: 'verification', x: 0, y: 0, w: 3, h: 4 },
+        ],
+        md: [
+            { i: 'verification', x: 0, y: 0, w: 2, h: 4 },
+        ],
+        sm: [
+            { i: 'verification', x: 0, y: 0, w: 1, h: 4 },
+        ]
+
     }
+
 }
 
 export default layouts

@@ -15,30 +15,22 @@ import classNames from 'classnames';
 import dark404 from '@assets/404dark.webp';
 import light404 from '@assets/404light.webp';
 
-const Error404 = () => {
+const ConfirmationBox = () => {
     const {theme} = useThemeProvider();
 
     return (
         <Spring className={`${styles.container} card d-flex align-items-center flex-1`}>
-            <div className={styles.media}>
-                <img className={classNames(styles.media_img, {[styles.visible]: theme === 'dark'})}
-                     src={light404}
-                     alt="404"/>
-                <img className={classNames(`${styles.media_img} ${styles.dark}`, {[styles.visible]: theme === 'dark'})}
-                     src={dark404}
-                     alt="404"/>
-            </div>
             <div className={styles.main}>
                 <h2 className={styles.main_title}>
-                    Oops! <span>Page you are looking for is not found.</span>
+                    <span>Danke für deine Anmeldung.</span>
                 </h2>
                 <p className={styles.main_text}>
-                    Please check the URL in the address bar and try again.
+                    Sie bekommen eine email mit den nächsten Schritten um euer team anzumelden.
+                    Die Ligen werden gerade ausgewerter. Unsere Diesnte kommen im August online.
                 </p>
-                <NavLink className="btn" to="/">Go to Home</NavLink>
             </div>
         </Spring>
     )
 }
 
-export default Error404
+export default ConfirmationBox

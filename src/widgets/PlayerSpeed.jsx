@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 const PlayerSpeed = () => {
     const {theme} = useThemeProvider();
     const {width} = useWindowSize();
-    const color = theme === 'light' ? 'var(--body)' : 'var(--border)';
+    const color = theme === 'dark' ? 'var(--body)' : 'var(--border)';
     const gauge = useGauge({
         domain: [0, 100],
         startAngle: START_ANGLE,
