@@ -8,8 +8,7 @@ import FirebaseImageUpload from "../../networking/Firebase/storage/FirebaseImage
 
 const VerificationForm = ({ registrationData }) => {
     const apiService = new ApiService();
-    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
-
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
     const generatePassword = (length = 12) => {
         const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         let password = "";
@@ -140,7 +139,7 @@ const VerificationForm = ({ registrationData }) => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit" disabled={isSubmitDisabled}>Submit</button>
+                    <button className="btn" type="submit">Submit</button>
                     <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Cancel</button>
                 </div>
             </form>
