@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Spring from '@components/Spring';
@@ -8,6 +8,7 @@ import FirebaseImageUpload from "../../networking/Firebase/storage/FirebaseImage
 
 const VerificationForm = ({ registrationData }) => {
     const apiService = new ApiService();
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
     const generatePassword = (length = 12) => {
         const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -19,7 +20,7 @@ const VerificationForm = ({ registrationData }) => {
         return password;
     };
 
-    const { register, handleSubmit, formState: { errors }, reset, control, setValue } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset, control, setValue, watch } = useForm({
         defaultValues: {
             id: registrationData.id || '',
             primary: {
@@ -42,9 +43,19 @@ const VerificationForm = ({ registrationData }) => {
             acceptedAGB: registrationData.acceptedAGB || false,
             referCode: registrationData.referCode || '',
             status: "draft",
-            initialPassword: registrationData.initial_password || generatePassword()
+            initialPassword: registrationData.initial_password || generatePassword(),
+            customer_signed_contract: registrationData.customer_signed_contract || null
         }
     });
+
+    const watchedFields = watch(['primary.identification', 'secondary.identification', 'customer_signed_contract']);
+
+    useEffect(() => {
+        const { primary, secondary, customer_signed_contract } = watchedFields;
+        setIsSubmitDisabled(
+            !primary?.identification || !secondary?.identification || !customer_signed_contract
+        );
+    }, [watchedFields]);
 
     const onSubmit = async (data) => {
         try {
@@ -63,7 +74,7 @@ const VerificationForm = ({ registrationData }) => {
                 acceptedAGB: data.acceptedAGB,
                 referCode: data.referCode,
                 id: registrationData.id || '',
-                status: "draft",
+                status: "verified",
                 initial_password: data.initialPassword,
                 customer_signed_contract: data.customer_signed_contract
             };
@@ -109,8 +120,8 @@ const VerificationForm = ({ registrationData }) => {
                     />
 
                     {/* Secondary Identification Upload */}
-                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden sie eine Ausweiskopie als bild oder PDF datei</h2>
-                    <p style={{marginBottom: '50px', color: "white"}}>Ausweis für {registrationData.secondary?.first}</p>
+                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden sie eine Ausweiskopie als bild oder PDF datei</h2>
+                    <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.secondary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadSecondarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
@@ -118,8 +129,8 @@ const VerificationForm = ({ registrationData }) => {
                     />
 
                     {/* Contract Upload */}
-                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden sie eine sAusweiskopie als bild oder PDF datei</h2>
-                    <p style={{marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
+                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden sie eine sAusweiskopie als bild oder PDF datei</h2>
+                    <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadContractSuccess}
                         path={`registrations/${registrationData.initial_password}`}
@@ -129,7 +140,7 @@ const VerificationForm = ({ registrationData }) => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit">Submit</button>
+                    <button className="btn" type="submit" disabled={isSubmitDisabled}>Submit</button>
                     <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Cancel</button>
                 </div>
             </form>
