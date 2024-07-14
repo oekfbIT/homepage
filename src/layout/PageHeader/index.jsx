@@ -30,10 +30,10 @@ const TabletHeader = ({title}) => {
                     <TruncatedText className={`${styles.title} h2`} text={title} width={width} lines={1}/>
                 </div>
             </div>
-            <div className="d-flex align-items-center g-20">
-                <Search/>
-                <User/>
-            </div>
+            {/*<div className="d-flex align-items-center g-20">*/}
+            {/*    <Search/>*/}
+            {/*    <User/>*/}
+            {/*</div>*/}
         </div>
     )
 }

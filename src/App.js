@@ -88,8 +88,8 @@ const App = () => {
                             {!isAuthRoute && (
                                 <>
                                     <Sidebar />
-                                    {width < 768 && <Navbar />}
-                                    {width < 768 && <BottomNav />}
+                                    {/*{width < 768 && <Navbar />}*/}
+                                    {/*{width < 768 && <BottomNav />}*/}
                                 </>
                             )}
                             <div className="app_container">

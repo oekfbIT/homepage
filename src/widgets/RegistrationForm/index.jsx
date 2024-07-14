@@ -80,7 +80,7 @@ const RegistrationForm = () => {
                             render={({field}) => (
                                 <input
                                     className={classNames(styles.field, {'field--error': errors.primaryContact?.first})}
-                                    placeholder="First Name"
+                                    placeholder="Vorname"
                                     {...field}
                                 />
                             )}
@@ -91,7 +91,7 @@ const RegistrationForm = () => {
                             render={({field}) => (
                                 <input
                                     className={classNames(styles.field, {'field--error': errors.primaryContact?.last})}
-                                    placeholder="Last Name"
+                                    placeholder="Familienname"
                                     {...field}
                                 />
                             )}
@@ -104,8 +104,8 @@ const RegistrationForm = () => {
                             render={({field}) => (
                                 <PatternFormat
                                     className={classNames(styles.field, {'field--error': errors.primaryContact?.phone})}
-                                    placeholder="Phone"
-                                    format="+43 (###) ###-####"
+                                    placeholder="Telefonnummer"
+                                    format="+43 (###) ###-########"
                                     mask="_"
                                     {...field}
                                 />
@@ -117,7 +117,7 @@ const RegistrationForm = () => {
                             render={({field}) => (
                                 <input
                                     className={classNames(styles.field, {'field--error': errors.primaryContact?.email})}
-                                    placeholder="Email"
+                                    placeholder="Email-Adresse"
                                     type="email"
                                     {...field}
                                 />
@@ -135,7 +135,7 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <input
                                     className={classNames(styles.field, { 'field--error': errors.secondaryContact?.first })}
-                                    placeholder="First Name"
+                                    placeholder="Vorname"
                                     {...field}
                                 />
                             )}
@@ -146,7 +146,7 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <input
                                     className={classNames(styles.field, { 'field--error': errors.secondaryContact?.last })}
-                                    placeholder="Last Name"
+                                    placeholder="Familienname"
                                     {...field}
                                 />
                             )}
@@ -159,8 +159,8 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <PatternFormat
                                     className={classNames(styles.field, { 'field--error': errors.secondaryContact?.phone })}
-                                    placeholder="Phone"
-                                    format="+43 (###) ###-####"
+                                    placeholder="Telefonnummer"
+                                    format="+43 (###) ###-#######"
                                     mask="_"
                                     {...field}
                                 />
@@ -172,7 +172,7 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <input
                                     className={classNames(styles.field, { 'field--error': errors.secondaryContact?.email })}
-                                    placeholder="Email"
+                                    placeholder="Email-Adresse"
                                     type="email"
                                     {...field}
                                 />
@@ -182,7 +182,7 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.section}>
-                    <h4>Registration Details</h4>
+                    <h4>Registrierungs Details</h4>
                     <div className={styles.row}>
                         <Controller
                             name="teamName"
@@ -190,7 +190,7 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <input
                                     className={classNames(styles.field, { 'field--error': errors.teamName })}
-                                    placeholder="Team Name"
+                                    placeholder="Mannschaft Wunschname"
                                     {...field}
                                 />
                             )}
@@ -252,7 +252,7 @@ const RegistrationForm = () => {
                                     ]}
                                     value={field.value}
                                     onChange={field.onChange}
-                                    placeholder="Club Type"
+                                    placeholder="Club Typ"
                                     isSearchable={true}
                                     variant="basic"
                                     innerRef={field.ref}
@@ -265,7 +265,7 @@ const RegistrationForm = () => {
                             render={({ field }) => (
                                 <input
                                     className={classNames(styles.field, { 'field--error': errors.zip })}
-                                    placeholder="Postal code"
+                                    placeholder="Postleizahl"
                                     {...field}
                                 />
                             )}
@@ -273,7 +273,7 @@ const RegistrationForm = () => {
                     </div>
                     <div className={styles.row}>
                         <Controller
-                            name="acceptedAGB"
+                            name="Ich akzeptiere die AGB"
                             control={control}
                             render={({ field }) => (
                                 <input
@@ -284,7 +284,7 @@ const RegistrationForm = () => {
                                 />
                             )}
                         />
-                        <label htmlFor="acceptedAGB">I accept the AGB.</label>
+                        <label htmlFor="/agb">I accept the AGB.</label>
                         <Controller
                             name="referCode"
                             control={control}
@@ -300,8 +300,8 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit">Submit</button>
-                    <button className="btn btn--outlined" type="reset" onClick={reset}>Cancel</button>
+                    <button className="btn" type="submit">Registrierung Absenden</button>
+                    <button className="btn btn--outlined" type="reset" onClick={reset}>Abbrechen</button>
                 </div>
             </form>
         </Spring>

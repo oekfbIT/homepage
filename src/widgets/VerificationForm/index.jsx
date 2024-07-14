@@ -41,7 +41,7 @@ const VerificationForm = ({ registrationData }) => {
             bundesland: registrationData.bundesland || '', // Ensure this is included
             acceptedAGB: registrationData.acceptedAGB || false,
             referCode: registrationData.referCode || '',
-            status: "draft",
+            status: "verified",
             initialPassword: registrationData.initial_password || generatePassword(),
             customer_signed_contract: registrationData.customer_signed_contract || null
         }
