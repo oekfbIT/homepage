@@ -9,6 +9,7 @@ import FirebaseImageUpload from "../../networking/Firebase/storage/FirebaseImage
 const VerificationForm = ({ registrationData }) => {
     const apiService = new ApiService();
     const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
+
     const generatePassword = (length = 12) => {
         const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         let password = "";
@@ -78,26 +79,26 @@ const VerificationForm = ({ registrationData }) => {
                 customer_signed_contract: data.customer_signed_contract
             };
             await apiService.patch(`registrations/${registrationData.id}`, payload); // Use the correct URL
-            toast.success('Registration submitted!');
+            toast.success('Registrierung erfolgreich eingereicht!');
             window.location.href = '/thankyou';
         } catch (errorInfo) {
-            toast.error('Registration failed: ' + errorInfo.message);
+            toast.error('Registrierung fehlgeschlagen: ' + errorInfo.message);
         }
     };
 
     const handleUploadPrimarySuccess = (fileUrl) => {
         setValue('primary.identification', fileUrl);
-        console.log("Successfully Uploaded Primary Identification:", fileUrl);
+        console.log("Erfolgreich hochgeladen: Primäre Identifikation:", fileUrl);
     };
 
     const handleUploadSecondarySuccess = (fileUrl) => {
         setValue('secondary.identification', fileUrl);
-        console.log("Successfully Uploaded Secondary Identification:", fileUrl);
+        console.log("Erfolgreich hochgeladen: Sekundäre Identifikation:", fileUrl);
     };
 
     const handleUploadContractSuccess = (fileUrl) => {
         setValue('customer_signed_contract', fileUrl);
-        console.log("Successfully Uploaded Contract:", fileUrl);
+        console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
 
     return (
@@ -107,10 +108,10 @@ const VerificationForm = ({ registrationData }) => {
                     <h1 style={{ marginBottom: '20px', color: "white" }}>
                         Hallo, {registrationData.primary?.first}, {registrationData.secondary?.first}
                     </h1>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Subtitle!</p>
+                    <p style={{ marginBottom: '50px', color: "white" }}>Willkommen zur Verifizierung!</p>
 
                     {/* Primary Identification Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden sie eine Ausweiskopie als bild oder PDF datei</h2>
+                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
                     <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadPrimarySuccess}
@@ -119,7 +120,7 @@ const VerificationForm = ({ registrationData }) => {
                     />
 
                     {/* Secondary Identification Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden sie eine Ausweiskopie als bild oder PDF datei</h2>
+                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
                     <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.secondary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadSecondarySuccess}
@@ -128,8 +129,8 @@ const VerificationForm = ({ registrationData }) => {
                     />
 
                     {/* Contract Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden sie eine sAusweiskopie als bild oder PDF datei</h2>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
+                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie den unterzeichneten Vertrag als Bild oder PDF hoch</h2>
+                    <p style={{ marginBottom: '50px', color: "white" }}>Vertrag für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadContractSuccess}
                         path={`registrations/${registrationData.initial_password}`}
@@ -139,8 +140,8 @@ const VerificationForm = ({ registrationData }) => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit">Submit</button>
-                    <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Cancel</button>
+                    <button className="btn" type="submit" disabled={isSubmitDisabled}>Einreichen</button>
+                    <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Abbrechen</button>
                 </div>
             </form>
         </Spring>
