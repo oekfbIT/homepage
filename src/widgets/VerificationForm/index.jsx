@@ -140,7 +140,7 @@ const VerificationForm = ({ registrationData }) => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit" disabled={isSubmitDisabled}>Einreichen</button>
+                    <button className="btn" type="submit">Einreichen</button>
                     <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Abbrechen</button>
                 </div>
             </form>
