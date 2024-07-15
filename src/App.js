@@ -11,9 +11,6 @@ import useAuthRoute from '@hooks/useAuthRoute';
 import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import LoadingScreen from '@components/LoadingScreen';
-import Sidebar from '@layout/Sidebar';
-import BottomNav from '@layout/BottomNav';
-import Navbar from '@layout/Navbar';
 import ShoppingCart from '@widgets/ShoppingCart';
 import ScrollToTop from '@components/ScrollToTop';
 import ThemeStyles from '@styles/theme';
@@ -79,52 +76,35 @@ const App = () => {
     return (
         <CacheProvider value={cacheRtl}>
             <MuiThemeProvider theme={muiTheme}>
-                <SidebarProvider>
-                    <ThemeProvider theme={{ theme: theme }}>
-                        <ThemeStyles />
-                        <ToastContainer theme={theme} autoClose={2500} position={direction === 'ltr' ? 'top-right' : 'top-left'} />
-                        <div className={`app ${isAuthRoute ? 'fluid' : ''}`} ref={appRef}>
-                            <ScrollToTop />
-                            {!isAuthRoute && (
-                                <>
-                                    <Sidebar />
-                                    {/*{width < 768 && <Navbar />}*/}
-                                    {/*{width < 768 && <BottomNav />}*/}
-                                </>
-                            )}
-                            <div className="app_container">
-                                <div className="app_container-content d-flex flex-column flex-1">
-                                    <Suspense fallback={<LoadingScreen />}>
-                                        <Routes>
-                                            <Route path="*" element={<PageNotFound />} />
-                                            <Route path="/" element={<HomeScreen />} />
-                                            <Route path="/registerscreen" element={<RegisterScreen />} />
-                                            <Route path="/thankyou" element={<ConfirmScreen />} />
-                                            <Route path="/team/upload/:id" element={<VerificationScreen />} />
-                                            <Route path="/game-summary" element={<GameSummary />} />
-                                            <Route path="/championships" element={<Championships />} />
-                                            <Route path="/league-overview" element={<LeagueOverview />} />
-                                            <Route path="/fans-community" element={<FansCommunity />} />
-                                            <Route path="/statistics" element={<Statistics />} />
-                                            <Route path="/match-summary" element={<MatchSummary />} />
-                                            <Route path="/match-overview" element={<MatchOverview />} />
-                                            <Route path="/player-profile" element={<PlayerProfile />} />
-                                            <Route path="/schedule" element={<Schedule />} />
-                                            <Route path="/tickets" element={<Tickets />} />
-                                            <Route path="/football-store" element={<FootballStore />} />
-                                            <Route path="/brand-store" element={<BrandStore />} />
-                                            <Route path="/product" element={<Product />} />
-                                            <Route path="/login" element={<Login />} />
-                                            <Route path="/sign-up" element={<SignUp />} />
-                                            <Route path="/settings" element={<Settings />} />
-                                        </Routes>
-                                    </Suspense>
-                                </div>
-                            </div>
-                            <ShoppingCart isPopup />
-                        </div>
-                    </ThemeProvider>
-                </SidebarProvider>
+                <div className="app_container">
+                    <div className="app_container-content d-flex flex-column flex-1">
+                        <Suspense fallback={<LoadingScreen/>}>
+                            <Routes>
+                                <Route path="*" element={<PageNotFound/>}/>
+                                <Route path="/" element={<HomeScreen/>}/>
+                                <Route path="/registerscreen" element={<RegisterScreen/>}/>
+                                <Route path="/thankyou" element={<ConfirmScreen/>}/>
+                                <Route path="/team/upload/:id" element={<VerificationScreen/>}/>
+                                <Route path="/game-summary" element={<GameSummary/>}/>
+                                <Route path="/championships" element={<Championships/>}/>
+                                <Route path="/league-overview" element={<LeagueOverview/>}/>
+                                <Route path="/fans-community" element={<FansCommunity/>}/>
+                                <Route path="/statistics" element={<Statistics/>}/>
+                                <Route path="/match-summary" element={<MatchSummary/>}/>
+                                <Route path="/match-overview" element={<MatchOverview/>}/>
+                                <Route path="/player-profile" element={<PlayerProfile/>}/>
+                                <Route path="/schedule" element={<Schedule/>}/>
+                                <Route path="/tickets" element={<Tickets/>}/>
+                                <Route path="/football-store" element={<FootballStore/>}/>
+                                <Route path="/brand-store" element={<BrandStore/>}/>
+                                <Route path="/product" element={<Product/>}/>
+                                <Route path="/login" element={<Login/>}/>
+                                <Route path="/sign-up" element={<SignUp/>}/>
+                                <Route path="/settings" element={<Settings/>}/>
+                            </Routes>
+                        </Suspense>
+                    </div>
+                </div>
             </MuiThemeProvider>
         </CacheProvider>
     );
