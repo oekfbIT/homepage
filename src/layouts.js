@@ -447,16 +447,16 @@ const layouts = {
     },
     registerscreen: {
         xl: [
-            { i: 'registration', x: 0, y: 0, w: 4, h: 5 },
+            { i: 'registration', x: 0, y: 0, w: 4, h: 6 },
         ],
         lg: [
-            { i: 'registration', x: 0, y: 0, w: 3, h: 4 },
+            { i: 'registration', x: 0, y: 0, w: 3, h: 5 },
         ],
         md: [
-            { i: 'registration', x: 0, y: 0, w: 2, h: 4 },
+            { i: 'registration', x: 0, y: 0, w: 2, h: 5 },
         ],
         sm: [
-            { i: 'registration', x: 0, y: 0, w: 1, h: 4 },
+            { i: 'registration', x: 0, y: 0, w: 1, h: 5 },
         ]
     },
     verificationscreen: {

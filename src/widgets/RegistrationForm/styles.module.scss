@@ -16,6 +16,12 @@
     gap: 20px;
     margin-bottom: 20px;
 }
+.checkRow {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 20px;
+}
 
 .social_item {
     display: flex;
@@ -192,4 +198,8 @@
 
 .btn--outlined {
     border: 1px solid #ccc;
+}
+
+.checkbox {
+    max-width: 20px;
 }

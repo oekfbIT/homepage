@@ -21,7 +21,7 @@ const RegistrationForm = () => {
         return password;
     };
 
-    const { register, handleSubmit, formState: { errors }, reset, control } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset, control, watch } = useForm({
         defaultValues: {
             primaryContact: {
                 first: '',
@@ -66,20 +66,22 @@ const RegistrationForm = () => {
         }
     };
 
+    const acceptedAGB = watch('acceptedAGB');
+
     return (
         <Spring className="card d-flex flex-column card-padded">
             <form className={`d-flex flex-column g-20 ${styles.container}`} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.section}>
-                    <h1 style={{marginBottom: '20px'}}>Jetzt Neu Registrieren</h1>
-                    <p style={{marginBottom: '50px'}}>Wir haben viele neue Updates für die neue Saison vorbereitet!</p>
-                    <h2 style={{marginBottom: '20px'}}>Primärer Ansprechpartner</h2>
+                    <h1 style={{ marginBottom: '20px' }}>Jetzt Neu Registrieren</h1>
+                    <p style={{ marginBottom: '50px' }}>Wir haben viele neue Updates für die neue Saison vorbereitet!</p>
+                    <h2 style={{ marginBottom: '20px' }}>Primärer Ansprechpartner</h2>
                     <div className={styles.row}>
                         <Controller
                             name="primaryContact.first"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <input
-                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.first})}
+                                    className={classNames(styles.field, { 'field--error': errors.primaryContact?.first })}
                                     placeholder="Vorname"
                                     {...field}
                                 />
@@ -88,9 +90,9 @@ const RegistrationForm = () => {
                         <Controller
                             name="primaryContact.last"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <input
-                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.last})}
+                                    className={classNames(styles.field, { 'field--error': errors.primaryContact?.last })}
                                     placeholder="Familienname"
                                     {...field}
                                 />
@@ -101,9 +103,9 @@ const RegistrationForm = () => {
                         <Controller
                             name="primaryContact.phone"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <PatternFormat
-                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.phone})}
+                                    className={classNames(styles.field, { 'field--error': errors.primaryContact?.phone })}
                                     placeholder="Telefonnummer"
                                     format="+43 (###) ###-########"
                                     mask="_"
@@ -114,9 +116,9 @@ const RegistrationForm = () => {
                         <Controller
                             name="primaryContact.email"
                             control={control}
-                            render={({field}) => (
+                            render={({ field }) => (
                                 <input
-                                    className={classNames(styles.field, {'field--error': errors.primaryContact?.email})}
+                                    className={classNames(styles.field, { 'field--error': errors.primaryContact?.email })}
                                     placeholder="Email-Adresse"
                                     type="email"
                                     {...field}
@@ -127,7 +129,7 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.section}>
-                    <h2 style={{marginBottom: '20px'}}>Sekundärer Ansprechpartner</h2>
+                    <h2 style={{ marginBottom: '20px' }}>Sekundärer Ansprechpartner</h2>
                     <div className={styles.row}>
                         <Controller
                             name="secondaryContact.first"
@@ -273,18 +275,22 @@ const RegistrationForm = () => {
                     </div>
                     <div className={styles.row}>
                         <Controller
-                            name="Ich akzeptiere die AGB"
+                            name="acceptedAGB"
                             control={control}
                             render={({ field }) => (
-                                <input
-                                    className={classNames(styles.field, { 'field--error': errors.acceptedAGB })}
-                                    type="checkbox"
-                                    checked={field.value}
-                                    onChange={field.onChange}
-                                />
+                                <div className={styles.checkRow} style={{ alignItems: 'flex-start' }}>
+                                    <input
+                                        className={classNames(styles.checkbox, { 'field--error': errors.acceptedAGB })}
+                                        type="checkbox"
+                                        checked={field.value}
+                                        onChange={field.onChange}
+                                    />
+                                    <span>
+                                        <a href="/agb" target="_blank" rel="noopener noreferrer">I accept the AGB</a>.
+                                    </span>
+                                </div>
                             )}
                         />
-                        <label htmlFor="/agb">I accept the AGB.</label>
                         <Controller
                             name="referCode"
                             control={control}
@@ -300,8 +306,8 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.footer}>
-                    <button className="btn" type="submit">Registrierung Absenden</button>
-                    <button className="btn btn--outlined" type="reset" onClick={reset}>Abbrechen</button>
+                    <button className="btn" type="submit" disabled={!acceptedAGB}>Registrierung Absenden</button>
+                    <button className="btn btn--outlined" type="reset" onClick={() => reset()}>Abbrechen</button>
                 </div>
             </form>
         </Spring>
