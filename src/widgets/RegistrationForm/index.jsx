@@ -248,7 +248,7 @@ const RegistrationForm = () => {
                                     className={classNames(styles.field, { 'field--error': errors.type })}
                                     options={[
                                         { value: 'privat', label: 'Privat' },
-                                        { value: 'professional', label: 'Professional' }
+                                        { value: 'verein', label: 'Verein' }
                                     ]}
                                     value={field.value}
                                     onChange={field.onChange}
