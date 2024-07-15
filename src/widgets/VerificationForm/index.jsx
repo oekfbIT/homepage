@@ -114,7 +114,6 @@ const VerificationForm = ({ registrationData }) => {
                     <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
                     <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
-                        existingUrl={registrationData.primary.identification}
                         onUploadSuccess={handleUploadPrimarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_primary_identification`}
@@ -124,7 +123,6 @@ const VerificationForm = ({ registrationData }) => {
                     <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
                     <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.secondary?.first}</p>
                     <FirebaseImageUpload
-                        existingUrl={registrationData.secondary.identification}
                         onUploadSuccess={handleUploadSecondarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_secondary_identification`}
@@ -134,7 +132,6 @@ const VerificationForm = ({ registrationData }) => {
                     <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie den unterzeichneten Vertrag als Bild oder PDF hoch</h2>
                     <p style={{ marginBottom: '50px', color: "white" }}>Vertrag für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
-                        existingUrl={registrationData.customer_signed_contract}
                         onUploadSuccess={handleUploadContractSuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_kunden_vertrag_unterschrieben`}
