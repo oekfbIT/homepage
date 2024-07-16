@@ -57,7 +57,7 @@ const RegistrationForm = () => {
                 type: data.type.value,
                 acceptedAGB: data.acceptedAGB,
                 referCode: data.referCode,
-                teamLogo: "",
+                team_logo: "",
                 initialPassword: data.initialPassword
             };
             await apiService.post('registrations/register', payload);
@@ -186,7 +186,7 @@ const RegistrationForm = () => {
                 </div>
 
                 <div className={styles.section}>
-                    <h4>Registrierungs Details</h4>
+                    <h2 style={{marginBottom: '20px'}}>Mannschaft Details</h2>
                     <div className={styles.row}>
                         <Controller
                             name="teamName"
@@ -297,7 +297,8 @@ const RegistrationForm = () => {
                                         onChange={field.onChange}
                                     />
                                     <span>
-                                        Ich akzeptiere die <a href="/ligaordnung" target="_blank" rel="noopener noreferrer"
+                                        Ich akzeptiere die <a href="/ligaordnung" target="_blank"
+                                                              rel="noopener noreferrer"
                                                               style={{textDecoration: 'underline', color: 'orange'}}>Ligaordnung & Allgemeinen Geschäftsbedingungen</a>.
                                     </span>
                                 </div>

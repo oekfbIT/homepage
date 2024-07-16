@@ -86,7 +86,9 @@ const BasicSelect = styled(NormalizedSelect)`
   .select {
     &__control {
       background-color: transparent;
-      border: 1px solid var(--border);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        color: white; // Ensure text color is consistent
       padding: 0 12px;
       height: 40px;
 
