@@ -69,7 +69,7 @@ const VerificationForm = ({ registrationData }) => {
                     identification: data.secondary.identification
                 },
                 team_name: data.teamName,
-                teamLogo: data.teamLogo,
+                team_logo: data.team_logo,
                 verein: data.verein,
                 bundesland: data.bundesland, // Ensure this is included
                 acceptedAGB: data.acceptedAGB,
@@ -102,7 +102,7 @@ const VerificationForm = ({ registrationData }) => {
         console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
     const handleUploadLogoSuccess = (fileUrl) => {
-        setValue('teamLogo', fileUrl);
+        setValue('team_logo', fileUrl);
         console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
 
