@@ -473,8 +473,13 @@ const layouts = {
             { i: 'verification', x: 0, y: 0, w: 1, h: 4 },
         ]
 
-    }
-
+    },
+    ligaordnungscreen: {
+        xl: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
+        lg: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
+        md: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
+        sm: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
+    },
 }
 
 export default layouts

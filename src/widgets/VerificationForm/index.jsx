@@ -100,28 +100,46 @@ const VerificationForm = ({ registrationData }) => {
         setValue('customer_signed_contract', fileUrl);
         console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
+    const handleUploadLogoSuccess = (fileUrl) => {
+        setValue('customer_signed_contract', fileUrl);
+        console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
+    };
+
 
     return (
         <Spring className={`card d-flex flex-column card-padded ${styles.container}`}>
             <form className="d-flex flex-column g-20" onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.section}>
-                    <h1 style={{ marginBottom: '20px', color: "white" }}>
+
+                    <h1 style={{marginBottom: '20px', color: "white"}}>
                         Hallo, {registrationData.primary?.first}, {registrationData.secondary?.first}
                     </h1>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Willkommen zur Verifizierung!</p>
+                    <p style={{marginBottom: '50px', color: "white"}}>Willkommen zur Verifizierung!</p>
 
                     {/* Primary Identification Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.primary?.first}</p>
+                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden sie ihr Wappen/Logo für ihre Mannschaft hoch</h2>
+                    <p style={{marginBottom: '50px', color: "white"}}>Für optimale Qualität bitte laden sie eine PDF oder PNG Datei</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadPrimarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_primary_identification`}
                     />
 
+                    {/* Primary Identification Upload */}
+                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden Sie eine Kopie
+                        Ihres Ausweises als Bild oder PDF hoch</h2>
+                    <p style={{marginBottom: '50px', color: "white"}}>Ausweis für {registrationData.primary?.first}</p>
+                    <FirebaseImageUpload
+                        onUploadSuccess={handleUploadLogoSuccess}
+                        path={`registrations/${registrationData.initial_password}`}
+                        filename={`${registrationData.initial_password}_logo`}
+                    />
+
                     {/* Secondary Identification Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie eine Kopie Ihres Ausweises als Bild oder PDF hoch</h2>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Ausweis für {registrationData.secondary?.first}</p>
+                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden Sie eine Kopie
+                        Ihres Ausweises als Bild oder PDF hoch</h2>
+                    <p style={{marginBottom: '50px', color: "white"}}>Ausweis
+                        für {registrationData.secondary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadSecondarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
@@ -129,8 +147,9 @@ const VerificationForm = ({ registrationData }) => {
                     />
 
                     {/* Contract Upload */}
-                    <h2 style={{ marginTop: '50px', marginBottom: '20px', color: "white" }}>Bitte laden Sie den unterzeichneten Vertrag als Bild oder PDF hoch</h2>
-                    <p style={{ marginBottom: '50px', color: "white" }}>Vertrag für {registrationData.primary?.first}</p>
+                    <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden Sie den
+                        unterzeichneten Vertrag als Bild oder PDF hoch</h2>
+                    <p style={{marginBottom: '50px', color: "white"}}>Vertrag für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadContractSuccess}
                         path={`registrations/${registrationData.initial_password}`}

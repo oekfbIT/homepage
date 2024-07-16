@@ -107,7 +107,8 @@ const BasicSelect = styled(NormalizedSelect)`
     &__menu {
       box-shadow: var(--widget-shadow);
       background: var(--widget);
-      border: ${theme('theme', {
+        background-color: black;
+        border: ${theme('theme', {
         light: '1px solid var(--widget)',
         dark: '1px solid var(--border)',
       })};

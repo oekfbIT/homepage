@@ -25,15 +25,10 @@ const TabletHeader = ({title}) => {
     return (
         <div className={`${styles.tablet} d-flex align-items-center justify-content-between g-20`}>
             <div className="d-flex align-items-center flex-1 g-30">
-                <SidebarTrigger/>
                 <div className="flex-1" ref={ref}>
                     <TruncatedText className={`${styles.title} h2`} text={title} width={width} lines={1}/>
                 </div>
             </div>
-            {/*<div className="d-flex align-items-center g-20">*/}
-            {/*    <Search/>*/}
-            {/*    <User/>*/}
-            {/*</div>*/}
         </div>
     )
 }
@@ -54,37 +49,7 @@ const DesktopHeader = ({title}) => {
                 </div>
             </div>
             <div className="d-flex align-items-center">
-                <Search/>
-                <div className="d-flex g-30" style={{margin: '0 50px'}}>
-                    <button className={`${styles.control} h5`} onClick={toggleTheme}>
-                        <i className={`icon-${theme === 'light' ? 'moon' : 'sun'}`}/>
-                        Theme
-                    </button>
-                    <button className={`${styles.control} h5`} onClick={toggleDirection}>
-                        <i className="icon icon-book-regular"/>
-                        {direction === 'ltr' ? 'RTL' : 'LTR'}
-                    </button>
-                    <div className="d-flex g-16">
-                        <span className={`${styles.control} h5`}>
-                            <i className="icon-text"/> Font size
-                        </span>
-                        <RangeSlider value={fontScale}
-                                     onChange={e => changeFontScale(e.target.value)}
-                                     min={1}
-                                     max={1.06}
-                                     step={0.01}/>
-                    </div>
-                    {
-                        isStoreRoute &&
-                        <button className={`${styles.control} ${styles[direction]} h5`}
-                                onClick={() => setCartOpen(true)}>
-                            <i className="icon icon-bag-solid"/>
-                            <span className={styles.control_indicator}/>
-                            Cart (2 items)
-                        </button>
-                    }
-                </div>
-                <User/>
+
             </div>
         </div>
     )
@@ -96,7 +61,7 @@ const PageHeader = ({title}) => {
     return (
         <>
             <Helmet>
-                <title>{title} | Liga Soccer React Dashboard Template</title>
+                <title>Österreichischer Kleinfußball Bund</title>
             </Helmet>
             {
                 width < 1280 ?

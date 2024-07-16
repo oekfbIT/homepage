@@ -1,19 +1,13 @@
 import React, { lazy, Suspense, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { CacheProvider } from '@emotion/react';
 import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
-import { SidebarProvider } from '@contexts/sidebarContext';
-import { ThemeProvider } from 'styled-components';
 import { useThemeProvider } from '@contexts/themeContext';
 import { useWindowSize } from 'react-use';
 import useAuthRoute from '@hooks/useAuthRoute';
 import createCache from '@emotion/cache';
 import rtlPlugin from 'stylis-plugin-rtl';
 import LoadingScreen from '@components/LoadingScreen';
-import ShoppingCart from '@widgets/ShoppingCart';
-import ScrollToTop from '@components/ScrollToTop';
-import ThemeStyles from '@styles/theme';
 import ReactGA from 'react-ga4';
 import './style.scss';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -22,6 +16,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import '@fonts/icomoon/icomoon.woff';
+import Ligaordnung from "@pages/ligaornung";
 
 const ClubSummary = lazy(() => import('@pages/ClubSummary'));
 const GameSummary = lazy(() => import('@pages/GameSummary'));
@@ -82,6 +77,7 @@ const App = () => {
                             <Routes>
                                 <Route path="*" element={<PageNotFound/>}/>
                                 <Route path="/" element={<HomeScreen/>}/>
+                                <Route path="/ligaordnung" element={<Ligaordnung/>}/>
                                 <Route path="/registerscreen" element={<RegisterScreen/>}/>
                                 <Route path="/thankyou" element={<ConfirmScreen/>}/>
                                 <Route path="/team/upload/:id" element={<VerificationScreen/>}/>

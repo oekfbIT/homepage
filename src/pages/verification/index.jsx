@@ -46,7 +46,7 @@ const VerificationScreen = () => {
     return (
         <>
             <Logo />
-            <AppGrid id="verificationscreen" widgets={{ verification: <VerificationForm registrationData={registrationData} /> }} />
+            <AppGrid id="ligaornung" widgets={{ verification: <VerificationForm registrationData={registrationData} /> }} />
         </>
     );
 };

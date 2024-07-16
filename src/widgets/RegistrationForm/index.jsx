@@ -41,6 +41,7 @@ const RegistrationForm = () => {
             type: '',
             acceptedAGB: false,
             referCode: '',
+            teamLogo: '',
             initialPassword: generatePassword()
         }
     });
@@ -56,6 +57,7 @@ const RegistrationForm = () => {
                 type: data.type.value,
                 acceptedAGB: data.acceptedAGB,
                 referCode: data.referCode,
+                teamLogo: "",
                 initialPassword: data.initialPassword
             };
             await apiService.post('registrations/register', payload);
@@ -107,7 +109,7 @@ const RegistrationForm = () => {
                                 <PatternFormat
                                     className={classNames(styles.field, { 'field--error': errors.primaryContact?.phone })}
                                     placeholder="Telefonnummer"
-                                    format="+43 (###) ###-########"
+                                    format="+43 (###) ###-#######"
                                     mask="_"
                                     {...field}
                                 />
@@ -189,9 +191,9 @@ const RegistrationForm = () => {
                         <Controller
                             name="teamName"
                             control={control}
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <input
-                                    className={classNames(styles.field, { 'field--error': errors.teamName })}
+                                    className={classNames(styles.field, {'field--error': errors.teamName})}
                                     placeholder="Mannschaft Wunschname"
                                     {...field}
                                 />
@@ -200,9 +202,9 @@ const RegistrationForm = () => {
                         <Controller
                             name="verein"
                             control={control}
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <input
-                                    className={classNames(styles.field, { 'field--error': errors.verein })}
+                                    className={classNames(styles.field, {'field--error': errors.verein})}
                                     placeholder="Verein Name (Optional)"
                                     {...field}
                                 />
@@ -213,27 +215,44 @@ const RegistrationForm = () => {
                         <Controller
                             name="bundesland"
                             control={control}
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <CustomSelect
-                                    className={classNames(styles.field, { 'field--error': errors.bundesland })}
+                                    className={classNames(styles.field, {'field--error': errors.bundesland})}
                                     options={[
-                                        { value: 'wien', label: 'Wien' },
-                                        { value: 'niederoesterreich', label: 'Niederösterreich' },
-                                        { value: 'oberoesterreich', label: 'Oberösterreich' },
-                                        { value: 'salzburg', label: 'Salzburg' },
-                                        { value: 'steiermark', label: 'Steiermark' },
-                                        { value: 'burgenland', label: 'Burgenland' },
-                                        { value: 'kaernten', label: 'Kärnten' },
-                                        { value: 'tirol', label: 'Tirol' },
-                                        { value: 'vorarlberg', label: 'Vorarlberg' },
-                                        { value: 'ausgetreten', label: 'Ausgetreten' },
-                                        { value: 'auszuwerten', label: 'Auszuwerten' }
+                                        {value: 'wien', label: 'Wien'},
+                                        {value: 'niederoesterreich', label: 'Niederösterreich'},
+                                        {value: 'oberoesterreich', label: 'Oberösterreich'},
+                                        {value: 'salzburg', label: 'Salzburg'},
+                                        {value: 'steiermark', label: 'Steiermark'},
+                                        {value: 'burgenland', label: 'Burgenland'},
+                                        {value: 'kaernten', label: 'Kärnten'},
+                                        {value: 'tirol', label: 'Tirol'},
+                                        {value: 'vorarlberg', label: 'Vorarlberg'},
+                                        {value: 'ausgetreten', label: 'Ausgetreten'},
+                                        {value: 'auszuwerten', label: 'Auszuwerten'}
                                     ]}
                                     value={field.value}
-                                    onChange={(value) => {
-                                        field.onChange(value);
-                                    }}
+                                    onChange={(value) => field.onChange(value)}
                                     placeholder="Bundesland"
+                                    isSearchable={true}
+                                    variant="basic"
+                                    innerRef={field.ref}
+                                />
+                            )}
+                        />
+                        <Controller
+                            name="type"
+                            control={control}
+                            render={({field}) => (
+                                <CustomSelect
+                                    className={classNames(styles.field, {'field--error': errors.type})}
+                                    options={[
+                                        {value: 'privat', label: 'Privat'},
+                                        {value: 'verein', label: 'Verein'}
+                                    ]}
+                                    value={field.value}
+                                    onChange={(value) => field.onChange(value)}
+                                    placeholder="Club Typ"
                                     isSearchable={true}
                                     variant="basic"
                                     innerRef={field.ref}
@@ -243,31 +262,23 @@ const RegistrationForm = () => {
                     </div>
                     <div className={styles.row}>
                         <Controller
-                            name="type"
+                            name="zip"
                             control={control}
-                            render={({ field }) => (
-                                <CustomSelect
-                                    className={classNames(styles.field, { 'field--error': errors.type })}
-                                    options={[
-                                        { value: 'privat', label: 'Privat' },
-                                        { value: 'verein', label: 'Verein' }
-                                    ]}
-                                    value={field.value}
-                                    onChange={field.onChange}
-                                    placeholder="Club Typ"
-                                    isSearchable={true}
-                                    variant="basic"
-                                    innerRef={field.ref}
+                            render={({field}) => (
+                                <input
+                                    className={classNames(styles.field, {'field--error': errors.zip})}
+                                    placeholder="Postleizahl"
+                                    {...field}
                                 />
                             )}
                         />
                         <Controller
-                            name="zip"
+                            name="referCode"
                             control={control}
-                            render={({ field }) => (
+                            render={({field}) => (
                                 <input
-                                    className={classNames(styles.field, { 'field--error': errors.zip })}
-                                    placeholder="Postleizahl"
+                                    className={classNames(styles.field, {'field--error': errors.referCode})}
+                                    placeholder="Refer Code"
                                     {...field}
                                 />
                             )}
@@ -277,29 +288,19 @@ const RegistrationForm = () => {
                         <Controller
                             name="acceptedAGB"
                             control={control}
-                            render={({ field }) => (
-                                <div className={styles.checkRow} style={{ alignItems: 'flex-start' }}>
+                            render={({field}) => (
+                                <div className={styles.checkRow} style={{alignItems: 'flex-start'}}>
                                     <input
-                                        className={classNames(styles.checkbox, { 'field--error': errors.acceptedAGB })}
+                                        className={classNames(styles.checkbox, {'field--error': errors.acceptedAGB})}
                                         type="checkbox"
                                         checked={field.value}
                                         onChange={field.onChange}
                                     />
                                     <span>
-                                        <a href="/agb" target="_blank" rel="noopener noreferrer">I accept the AGB</a>.
+                                        Ich akzeptiere die <a href="/ligaordnung" target="_blank" rel="noopener noreferrer"
+                                                              style={{textDecoration: 'underline', color: 'orange'}}>Ligaordnung & Allgemeinen Geschäftsbedingungen</a>.
                                     </span>
                                 </div>
-                            )}
-                        />
-                        <Controller
-                            name="referCode"
-                            control={control}
-                            render={({ field }) => (
-                                <input
-                                    className={classNames(styles.field, { 'field--error': errors.referCode })}
-                                    placeholder="Refer Code"
-                                    {...field}
-                                />
                             )}
                         />
                     </div>
