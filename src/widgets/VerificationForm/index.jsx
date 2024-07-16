@@ -122,7 +122,7 @@ const VerificationForm = ({ registrationData }) => {
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadPrimarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
-                        filename={`${registrationData.initial_password}_primary_identification`}
+                        filename={`${registrationData.initial_password}_logo`}
                     />
 
                     {/* Primary Identification Upload */}
@@ -132,14 +132,13 @@ const VerificationForm = ({ registrationData }) => {
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadLogoSuccess}
                         path={`registrations/${registrationData.initial_password}`}
-                        filename={`${registrationData.initial_password}_logo`}
+                        filename={`${registrationData.initial_password}_primary_identification`}
                     />
 
                     {/* Secondary Identification Upload */}
                     <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden Sie eine Kopie
                         Ihres Ausweises als Bild oder PDF hoch</h2>
-                    <p style={{marginBottom: '50px', color: "white"}}>Ausweis
-                        für {registrationData.secondary?.first}</p>
+                    <p style={{marginBottom: '50px', color: "white"}}>Ausweis für {registrationData.secondary?.first}</p>
                     <FirebaseImageUpload
                         onUploadSuccess={handleUploadSecondarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
