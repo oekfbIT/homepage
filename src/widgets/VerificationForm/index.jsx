@@ -101,7 +101,7 @@ const VerificationForm = ({ registrationData }) => {
         console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
     const handleUploadLogoSuccess = (fileUrl) => {
-        setValue('customer_signed_contract', fileUrl);
+        setValue('teamLogo', fileUrl);
         console.log("Erfolgreich hochgeladen: Vertrag:", fileUrl);
     };
 
