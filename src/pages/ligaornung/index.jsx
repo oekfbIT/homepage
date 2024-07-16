@@ -1,6 +1,6 @@
 // HomeScreen.js
 import React from 'react';
-import Spring from '@components/Spring';ç
+import Spring from '@components/Spring';
 import AppGrid from "@layout/AppGrid";
 import Logo from "@components/Logo";
 import LigaordnungComponent from "@widgets/LigaordnungComponent";

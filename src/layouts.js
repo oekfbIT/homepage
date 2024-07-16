@@ -461,16 +461,16 @@ const layouts = {
     },
     verificationscreen: {
         xl: [
-            { i: 'verification', x: 0, y: 0, w: 4, h: 5 },
+            { i: 'verification', x: 0, y: 0, w: 4, h: 8 },
         ],
         lg: [
-            { i: 'verification', x: 0, y: 0, w: 4, h: 4 },
+            { i: 'verification', x: 0, y: 0, w: 3, h: 8 },
         ],
         md: [
-            { i: 'verification', x: 0, y: 0, w: 2, h: 4 },
+            { i: 'verification', x: 0, y: 0, w: 2, h: 8 },
         ],
         sm: [
-            { i: 'verification', x: 0, y: 0, w: 4, h: 4 },
+            { i: 'verification', x: 0, y: 0, w: 1, h: 8 },
         ]
 
     },
@@ -478,7 +478,7 @@ const layouts = {
         xl: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
         lg: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
         md: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
-        sm: [{ i: 'ligaordnung', x: 0, y: 0, w: 4, h: 48 }],
+        sm: [{ i: 'ligaordnung', x: 0, y: 0, w: 3, h: 30 }],
     },
 }
 
