@@ -69,6 +69,7 @@ const VerificationForm = ({ registrationData }) => {
                     identification: data.secondary.identification
                 },
                 team_name: data.teamName,
+                teamLogo: data.teamLogo,
                 verein: data.verein,
                 bundesland: data.bundesland, // Ensure this is included
                 acceptedAGB: data.acceptedAGB,

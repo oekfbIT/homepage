@@ -464,13 +464,13 @@ const layouts = {
             { i: 'verification', x: 0, y: 0, w: 4, h: 5 },
         ],
         lg: [
-            { i: 'verification', x: 0, y: 0, w: 3, h: 4 },
+            { i: 'verification', x: 0, y: 0, w: 4, h: 4 },
         ],
         md: [
             { i: 'verification', x: 0, y: 0, w: 2, h: 4 },
         ],
         sm: [
-            { i: 'verification', x: 0, y: 0, w: 1, h: 4 },
+            { i: 'verification', x: 0, y: 0, w: 4, h: 4 },
         ]
 
     },
