@@ -120,7 +120,7 @@ const VerificationForm = ({ registrationData }) => {
                     <h2 style={{marginTop: '50px', marginBottom: '20px', color: "white"}}>Bitte laden sie ihr Wappen/Logo für ihre Mannschaft hoch</h2>
                     <p style={{marginBottom: '50px', color: "white"}}>Für optimale Qualität bitte laden sie eine PDF oder PNG Datei</p>
                     <FirebaseImageUpload
-                        onUploadSuccess={handleUploadPrimarySuccess}
+                        onUploadSuccess={handleUploadLogoSuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_logo`}
                     />
@@ -130,7 +130,7 @@ const VerificationForm = ({ registrationData }) => {
                         Ihres Ausweises als Bild oder PDF hoch</h2>
                     <p style={{marginBottom: '50px', color: "white"}}>Ausweis für {registrationData.primary?.first}</p>
                     <FirebaseImageUpload
-                        onUploadSuccess={handleUploadLogoSuccess}
+                        onUploadSuccess={handleUploadPrimarySuccess}
                         path={`registrations/${registrationData.initial_password}`}
                         filename={`${registrationData.initial_password}_primary_identification`}
                     />
