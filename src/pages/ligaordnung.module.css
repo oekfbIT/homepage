@@ -1,0 +1,54 @@
+.navigationbarIcon {
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 90px;
+  flex-shrink: 0;
+}
+.sterreichischerKleinfeldFub {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.impressum {
+  align-self: stretch;
+  position: relative;
+  font-size: 26px;
+}
+.impressium,
+.sterreichischerKleinfeldFubParent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.sterreichischerKleinfeldFubParent {
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 1200px;
+}
+.impressium {
+  position: relative;
+  background-color: #0a141b;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 50px;
+  text-align: left;
+  font-size: 29px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}
+
+.longtextitem {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+

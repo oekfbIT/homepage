@@ -1,109 +1,94 @@
-import React, { lazy, Suspense, useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { CacheProvider } from '@emotion/react';
-import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
-import { useThemeProvider } from '@contexts/themeContext';
-import { useWindowSize } from 'react-use';
-import useAuthRoute from '@hooks/useAuthRoute';
-import createCache from '@emotion/cache';
-import rtlPlugin from 'stylis-plugin-rtl';
-import LoadingScreen from '@components/LoadingScreen';
-import ReactGA from 'react-ga4';
-import './style.scss';
-import 'react-toastify/dist/ReactToastify.min.css';
-import 'react-grid-layout/css/styles.css';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
-import 'swiper/css/pagination';
-import '@fonts/icomoon/icomoon.woff';
-import Ligaordnung from "@pages/ligaornung";
+import { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  useNavigationType,
+  useLocation,
+} from "react-router-dom";
+import LeagueDetail from "./pages/LeagueDetail";
+import Landing from "./pages/Landing";
+import PlayerDetail from "./pages/PlayerDetail";
+import Impressium from "./pages/Impressium";
+import LeagueOverview from "./pages/LeagueOverview";
+import TeamDetail from "./pages/TeamDetail";
+import Nationalteam from "./pages/Nationalteam";
+import Ligaordnung from "./pages/Ligaordnung";
+import Register from "./pages/Register";
+import Upload from "./pages/Upload";
 
-const ClubSummary = lazy(() => import('@pages/ClubSummary'));
-const GameSummary = lazy(() => import('@pages/GameSummary'));
-const Championships = lazy(() => import('@pages/Championships'));
-const LeagueOverview = lazy(() => import('@pages/LeagueOverview'));
-const FansCommunity = lazy(() => import('@pages/FansCommunity'));
-const Statistics = lazy(() => import('@pages/Statistics'));
-const PageNotFound = lazy(() => import('@pages/PageNotFound'));
-const MatchSummary = lazy(() => import('@pages/MatchSummary'));
-const MatchOverview = lazy(() => import('@pages/MatchOverview'));
-const PlayerProfile = lazy(() => import('@pages/PlayerProfile'));
-const Schedule = lazy(() => import('@pages/Schedule'));
-const Tickets = lazy(() => import('@pages/Tickets'));
-const FootballStore = lazy(() => import('@pages/FootballStore'));
-const BrandStore = lazy(() => import('@pages/BrandStore'));
-const Product = lazy(() => import('@pages/Product'));
-const Login = lazy(() => import('@pages/Login'));
-const SignUp = lazy(() => import('@pages/SignUp'));
-const Settings = lazy(() => import('@pages/Settings'));
-const HomeScreen = lazy(() => import('@pages/homepage'));
-const RegisterScreen = lazy(() => import('@pages/registration'));
-const ConfirmScreen = lazy(() => import('@pages/confirmation/ConfirmationScreen'));
-const VerificationScreen = lazy(() => import('@pages/verification')); // This should be imported only once
+function App() {
+  const action = useNavigationType();
+  const location = useLocation();
+  const pathname = location.pathname;
 
-const App = () => {
-    const appRef = useRef(null);
-    const { theme, direction } = useThemeProvider();
-    const { width } = useWindowSize();
-    const isAuthRoute = useAuthRoute();
+  useEffect(() => {
+    if (action !== "POP") {
+      window.scrollTo(0, 0);
+    }
+  }, [action, pathname]);
 
-    // Google Analytics init
-    const gaKey = process.env.REACT_APP_PUBLIC_GA;
-    gaKey && ReactGA.initialize(gaKey);
+  useEffect(() => {
+    let title = "";
+    let metaDescription = "";
 
-    // auto RTL support for Material-UI components and styled-components
-    const plugins = direction === 'rtl' ? [rtlPlugin] : [];
+    switch (pathname) {
+      case "/":
+        title = "";
+        metaDescription = "";
+        break;
+      case "/landing":
+        title = "Landing";
+        metaDescription = "";
+        break;
+      case "/ligaordnung":
+        title = "Ligaordnung";
+        metaDescription = "";
+        break;
+      case "/player-detail":
+        title = "Player Details";
+        metaDescription = "";
+        break;
+      case "/impressium":
+        title = "Impressium";
+        metaDescription = "";
+        break;
+      case "/league-overview":
+        title = "League Overview";
+        metaDescription = "";
+        break;
+      case "/team-detail":
+        title = "Team Detail";
+        metaDescription = "";
+        break;
+    }
 
-    const muiTheme = createTheme({
-        direction: direction,
-    });
+    if (title) {
+      document.title = title;
+    }
 
-    const cacheRtl = createCache({
-        key: 'css-rtl',
-        stylisPlugins: plugins,
-    });
+    if (metaDescription) {
+      const metaDescriptionTag = document.querySelector(
+        'head > meta[name="description"]'
+      );
+      if (metaDescriptionTag) {
+        metaDescriptionTag.content = metaDescription;
+      }
+    }
+  }, [pathname]);
 
-    useEffect(() => {
-        // scroll to top on route change
-        appRef.current && appRef.current.scrollTo(0, 0);
-    }, []);
-
-    return (
-        <CacheProvider value={cacheRtl}>
-            <MuiThemeProvider theme={muiTheme}>
-                <div className="app_container">
-                    <div className="app_container-content d-flex flex-column flex-1">
-                        <Suspense fallback={<LoadingScreen/>}>
-                            <Routes>
-                                <Route path="*" element={<PageNotFound/>}/>
-                                <Route path="/" element={<HomeScreen/>}/>
-                                <Route path="/ligaordnung" element={<Ligaordnung/>}/>
-                                <Route path="/registerscreen" element={<RegisterScreen/>}/>
-                                <Route path="/thankyou" element={<ConfirmScreen/>}/>
-                                <Route path="/team/upload/:id" element={<VerificationScreen/>}/>
-                                <Route path="/game-summary" element={<GameSummary/>}/>
-                                <Route path="/championships" element={<Championships/>}/>
-                                <Route path="/league-overview" element={<LeagueOverview/>}/>
-                                <Route path="/fans-community" element={<FansCommunity/>}/>
-                                <Route path="/statistics" element={<Statistics/>}/>
-                                <Route path="/match-summary" element={<MatchSummary/>}/>
-                                <Route path="/match-overview" element={<MatchOverview/>}/>
-                                <Route path="/player-profile" element={<PlayerProfile/>}/>
-                                <Route path="/schedule" element={<Schedule/>}/>
-                                <Route path="/tickets" element={<Tickets/>}/>
-                                <Route path="/football-store" element={<FootballStore/>}/>
-                                <Route path="/brand-store" element={<BrandStore/>}/>
-                                <Route path="/product" element={<Product/>}/>
-                                <Route path="/login" element={<Login/>}/>
-                                <Route path="/sign-up" element={<SignUp/>}/>
-                                <Route path="/settings" element={<Settings/>}/>
-                            </Routes>
-                        </Suspense>
-                    </div>
-                </div>
-            </MuiThemeProvider>
-        </CacheProvider>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/league-detail/:id" element={<LeagueDetail />} />
+      <Route path="/player-detail" element={<PlayerDetail />} />
+      <Route path="/impressium" element={<Impressium />} />
+      <Route path="/ligaordnung" element={<Ligaordnung />} />
+      <Route path="/league/:stateName" element={<LeagueOverview />} />
+      <Route path="/team-detail/:id" element={<TeamDetail />} />
+      <Route path="/nationalteam" element={<Nationalteam />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/team/upload/:id" element={<Upload />} />
+    </Routes>
+  );
 }
-
 export default App;

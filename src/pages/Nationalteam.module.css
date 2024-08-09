@@ -1,0 +1,115 @@
+.frameChild {
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  height: 303px;
+  object-fit: cover;
+}
+.rank {
+  position: relative;
+  font-size: 17px;
+  font-weight: 600;
+  white-space: pre-wrap;
+}
+.coumtry,
+.flagIcon,
+.points {
+  position: relative;
+  display: none;
+}
+.flagIcon {
+  width: 25.8px;
+  height: 14.6px;
+  object-fit: cover;
+}
+.coumtry,
+.points {
+  width: 72px;
+  font-weight: 600;
+}
+.points {
+  width: 31px;
+  font-weight: 300;
+}
+.nationalrankingitem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7.7px;
+}
+.nationalrankingitemParent {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+  gap: 6.9px;
+}
+.nationalRangliste,
+.nationalrankingitemParent {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.nationalRangliste,
+.nationalRanglisteWrapper,
+.rectangleParent {
+  align-self: stretch;
+  display: flex;
+  justify-content: flex-start;
+}
+.nationalRanglisteWrapper {
+  width: 239px;
+  background-color: #191e25;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 15px;
+  box-sizing: border-box;
+}
+.rectangleParent {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+.euro2022Endet {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.dasSterreichischeKleinfeld {
+  margin: 0;
+}
+.dasSterreichischeKleinfeldContainer {
+  align-self: stretch;
+  position: relative;
+  font-size: 16px;
+}
+.euro2022EndetFrhParent {
+  align-self: stretch;
+  justify-content: flex-start;
+  gap: 13px;
+}
+.euro2022EndetFrhParent,
+.info,
+.nationalteam {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.info {
+  align-self: stretch;
+  background-color: #191e25;
+  justify-content: center;
+  padding: 30px 18px;
+  font-size: 29px;
+}
+.nationalteam {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: left;
+  font-size: 13.1px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}

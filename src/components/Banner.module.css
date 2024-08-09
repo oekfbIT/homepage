@@ -1,0 +1,57 @@
+.logoIcon {
+  width: 187px;
+  position: relative;
+  height: 68.6px;
+}
+.experienceTheWorld {
+  margin: 0;
+}
+.experienceTheWorldContainer {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.experienceTheWorldOfWinnerParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 24px;
+  min-width: 300px;
+}
+.banner,
+.logoParent,
+.overlay {
+  display: flex;
+  align-items: center;
+}
+.logoParent {
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.banner,
+.overlay {
+  justify-content: center;
+}
+.overlay {
+  align-self: stretch;
+  background-color: rgba(10, 20, 27, 0.6);
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 30px 40px;
+}
+.banner {
+  width: 100%;
+  flex-direction: column;
+  background-image: url(/public/banner@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  max-width: 1200px;
+  text-align: left;
+  font-size: 29px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}

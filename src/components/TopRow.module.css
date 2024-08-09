@@ -1,0 +1,129 @@
+.joined {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-weight: 600;
+}
+.logoIcon {
+  width: 40px;
+  position: relative;
+  height: 29px;
+  object-fit: cover;
+}
+.joined1 {
+  position: relative;
+  font-weight: 600;
+}
+.hometeam {
+  position: absolute;
+  top: 0;
+  left: 29px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 21px;
+  text-align: left;
+}
+.leffblock {
+  width: 179px;
+  height: 29px;
+  opacity: 0;
+}
+.div,
+.leffblock,
+.matches {
+  position: relative;
+}
+.matches {
+  align-self: stretch;
+  font-weight: 500;
+}
+.div {
+  flex: 1;
+  font-weight: 600;
+}
+.statvalue {
+  width: 46px;
+  height: 47px;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 13px 0;
+  box-sizing: border-box;
+  text-align: right;
+  font-size: 23px;
+}
+.statitem {
+  width: 50px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 7px;
+}
+.statitem,
+.statitem1 {
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 15px;
+  text-align: left;
+}
+.statitem1,
+.statitem2,
+.statitem4,
+.statitemParent {
+  display: flex;
+  justify-content: flex-start;
+}
+.statitem2 {
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 15px;
+}
+.statitem4,
+.statitemParent {
+  width: 50px;
+}
+.statitemParent {
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+.statitem4 {
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 15px;
+}
+.content,
+.rightblock,
+.toprow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.rightblock {
+  justify-content: flex-start;
+  gap: 30px;
+  text-align: right;
+  font-size: 11px;
+}
+.content,
+.toprow {
+  flex-wrap: wrap;
+}
+.content {
+  flex: 1;
+  justify-content: space-between;
+}
+.toprow {
+  background-color: #191e24;
+  max-width: 100%;
+  justify-content: flex-start;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  font-family: "Lexend Deca";
+  align-self: stretch;
+}

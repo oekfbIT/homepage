@@ -1,0 +1,31 @@
+.logoIcon {
+  width: 187px;
+  position: relative;
+  height: 68.6px;
+}
+.leagueOverview,
+.navigationbar {
+  display: flex;
+  flex-direction: column;
+
+}
+.navigationbar {
+  align-self: stretch;
+  background-color: #191e25;
+  overflow: hidden;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 32px;
+}
+.leagueOverview {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #0a141b;
+  display: flex;              /* Ensure the container uses Flexbox */
+  flex-direction: column;     /* Align children vertically */
+  align-items: center;        /* Align items horizontally at the center */
+  justify-content: space-between; /* Distribute spacing evenly */
+  gap: 50px;                  /* Gap between items */
+  height: fit-content;
+}

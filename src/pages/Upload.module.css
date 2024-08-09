@@ -1,0 +1,947 @@
+.logoIcon {
+    width: 187px;
+    flex: 1;
+    position: relative;
+    max-height: 100%;
+}
+.navigationbar {
+    align-self: stretch;
+    height: 88.6px;
+    background-color: #191e25;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 32px;
+    box-sizing: border-box;
+}
+.logoIcon1 {
+    width: 390.7px;
+    position: relative;
+    max-height: 100%;
+    max-width: 100%;
+}
+.bundeslandCell {
+    align-self: stretch;
+    flex: 1;
+    border-radius: 10.8px;
+    background-color: #191e25;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 23.4px 9px;
+    box-sizing: border-box;
+    min-width: 180px;
+    max-width: 100%;
+}
+.ligen,
+.ligenWrapper {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.ligen {
+    width: 1200px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 1200px;
+}
+.ligenWrapper {
+    height: 217.9px;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.jetztNeuRegistrieren,
+.sterreichischerKleinfeldFub {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+}
+.jetztNeuRegistrieren {
+    font-size: 26px;
+    font-weight: 400;
+}
+.sterreichischerKleinfeldFubParent {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+}
+.uploadInner {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.bitteLadenSie,
+.frOptimaleQualitt {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+}
+.frOptimaleQualitt {
+    font-size: 24px;
+    font-weight: 400;
+}
+.bitteLadenSieIhrWappenlogParent {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+}
+.uploadChild {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.jetztReigstrieren {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+}
+.icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.button,
+.iconWrapper {
+    justify-content: flex-start;
+}
+.iconWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3px 0 0;
+}
+.button {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #ea9805;
+    border-radius: 6px;
+    overflow: hidden;
+    box-sizing: border-box;
+    gap: 20px;
+    max-width: 245px;
+    max-height: 52px;
+}
+.button1:hover,
+.button2:hover,
+.button3:hover,
+.button:hover {
+    background-color: #094db2;
+}
+.button,
+.buttonframe,
+.buttonframeWrapper {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.buttonframe {
+    width: 1200px;
+    justify-content: flex-start;
+    max-width: 1200px;
+}
+.buttonframeWrapper {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.bitteLadenSie1,
+.frOptimaleQualitt1 {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+}
+.frOptimaleQualitt1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+.bitteLadenSieDenAusweisVoParent {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+}
+.frameDiv {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.jetztReigstrieren1 {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+}
+.icon1 {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.button1,
+.iconContainer {
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.iconContainer {
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3px 0 0;
+}
+.button1 {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #ea9805;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 20px;
+    max-width: 245px;
+    max-height: 52px;
+}
+.button1,
+.buttonframe1,
+.buttonframeContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.buttonframe1 {
+    width: 1200px;
+    justify-content: flex-start;
+    max-width: 1200px;
+}
+.buttonframeContainer {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.bitteLadenSie2,
+.frOptimaleQualitt2 {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+}
+.frOptimaleQualitt2 {
+    font-size: 24px;
+    font-weight: 400;
+}
+.bitteLadenSieEineKopieIhrParent {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+}
+.uploadInner1 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.jetztReigstrieren2 {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+}
+.icon2 {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.button2,
+.iconFrame {
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.iconFrame {
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3px 0 0;
+}
+.button2 {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #ea9805;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 20px;
+    max-width: 245px;
+    max-height: 52px;
+}
+.button2,
+.buttonframe2,
+.buttonframeFrame {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.buttonframe2 {
+    width: 1200px;
+    justify-content: flex-start;
+    max-width: 1200px;
+}
+.buttonframeFrame {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.bitteLadenSie3,
+.frOptimaleQualitt3 {
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+    font-family: inherit;
+}
+.bitteLadenSie3 {
+    font-size: inherit;
+    font-weight: 600;
+    white-space: pre-wrap;
+}
+.frOptimaleQualitt3 {
+    font-size: 24px;
+    font-weight: 400;
+}
+.bitteLadenSieDenUnterzeichParent {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 1200px;
+}
+.uploadInner2 {
+    align-self: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.jetztReigstrieren3 {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+}
+.icon3 {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.button3,
+.iconWrapper1 {
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.iconWrapper1 {
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3px 0 0;
+}
+.button3 {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #ea9805;
+    border-radius: 6px;
+    overflow: hidden;
+    gap: 20px;
+    max-width: 245px;
+    max-height: 52px;
+}
+.button3,
+.buttonframe3,
+.buttonframeWrapper1 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.buttonframe3 {
+    width: 1200px;
+    justify-content: flex-start;
+    max-width: 1200px;
+}
+.buttonframeWrapper1 {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.abbrechen {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+}
+.button4 {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #191e25;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 245px;
+    white-space: nowrap;
+}
+.button4:hover,
+.button5:hover {
+    background-color: #4d5259;
+}
+.abbrechen1 {
+    position: relative;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    display: inline-block;
+    font-family: Inter;
+    color: #fff;
+    text-align: center;
+    min-width: 87px;
+}
+.button5 {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    background-color: #191e25;
+    border-radius: 6px;
+    overflow: hidden;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    max-width: 245px;
+}
+.button5,
+.buttonframe4,
+.buttonframeWrapper2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.buttonframe4 {
+    width: 1200px;
+    justify-content: flex-start;
+    gap: 50px;
+    max-width: 1200px;
+}
+.buttonframeWrapper2 {
+    align-self: stretch;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 100%;
+}
+.groupIcon {
+    width: 187px;
+    height: 68.6px;
+    position: relative;
+}
+.fuballBund,
+.sterreichischerKleinfeld {
+    margin: 0;
+    font-weight: 800;
+}
+.blankLine,
+.kfb,
+.supportoekfbeu,
+.wienDarwingasse64 {
+    margin: 0;
+    font-weight: 500;
+}
+.sterreichischerKleinfeldFubContainer {
+    align-self: stretch;
+    height: 98px;
+    position: relative;
+    display: inline-block;
+}
+.vectorIcon {
+    position: absolute;
+    height: 96%;
+    width: 96%;
+    top: 2%;
+    right: 2%;
+    bottom: 2%;
+    left: 2%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.entypoSocialfacebookWithCi {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.vectorIcon1 {
+    position: absolute;
+    height: 96%;
+    width: 96%;
+    top: 2%;
+    right: 2%;
+    bottom: 2%;
+    left: 2%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.entypoSocialinstagramWithC {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.vectorIcon2 {
+    position: absolute;
+    height: 96%;
+    width: 96%;
+    top: 2%;
+    right: 2%;
+    bottom: 2%;
+    left: 2%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.entypoSocialtwitterWithCir {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.fickleflightBio,
+.socialIcons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+}
+.fickleflightBio {
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 335px;
+    max-width: 100%;
+}
+.company1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 500;
+}
+.aboutUs,
+.careers,
+.company1,
+.howWeWork,
+.news {
+    align-self: stretch;
+    position: relative;
+}
+.company {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+    min-width: 90px;
+}
+.support1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 500;
+}
+.accessibility,
+.account,
+.faq,
+.support1,
+.supportCenter {
+    align-self: stretch;
+    position: relative;
+}
+.support {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 14px;
+    min-width: 90px;
+}
+.more1 {
+    font-size: 20px;
+    line-height: 27px;
+    font-weight: 500;
+}
+.airlineFees,
+.covidAdvisory,
+.more1,
+.quarantineRules,
+.tips {
+    align-self: stretch;
+    position: relative;
+}
+.footerLinks,
+.footerLinksWrapper,
+.more {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.more {
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 90px;
+}
+.footerLinks,
+.footerLinksWrapper {
+    box-sizing: border-box;
+}
+.footerLinks {
+    align-self: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 6px 0 0;
+    gap: 10px 8px;
+    min-width: 350px;
+}
+.footerLinksWrapper {
+    flex: 1;
+    flex-direction: column;
+    padding: 32.8px 0 0;
+    min-width: 335px;
+    max-width: 100%;
+    font-size: 16px;
+    font-family: Roboto;
+}
+.footer,
+.upload {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    color: #fff;
+}
+.footer {
+    align-self: stretch;
+    background-color: #191e25;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 33px 84px;
+    box-sizing: border-box;
+    gap: 44px 42px;
+    max-width: 100%;
+    font-size: 11.6px;
+    font-family: Inter;
+}
+.upload {
+    width: 100%;
+    position: relative;
+    background-color: #0a141b;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 50px;
+    line-height: normal;
+    letter-spacing: normal;
+    font-size: 29px;
+    font-family: "Lexend Deca";
+}
+@media screen and (max-width: 1200px) {
+    .bitteLadenSieDenAusweisVoParent,
+    .bitteLadenSieDenUnterzeichParent,
+    .bitteLadenSieEineKopieIhrParent,
+    .bitteLadenSieIhrWappenlogParent,
+    .buttonframe,
+    .buttonframe1,
+    .buttonframe2,
+    .buttonframe3,
+    .buttonframe4,
+    .ligen,
+    .sterreichischerKleinfeldFubParent {
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .footer {
+        padding-left: 42px;
+        padding-right: 42px;
+        box-sizing: border-box;
+    }
+}
+@media screen and (max-width: 450px) {
+    .sterreichischerKleinfeldFub {
+        font-size: 23px;
+    }
+    .jetztNeuRegistrieren {
+        font-size: 21px;
+    }
+    .bitteLadenSie {
+        font-size: 23px;
+    }
+    .frOptimaleQualitt {
+        font-size: 19px;
+    }
+    .bitteLadenSie1 {
+        font-size: 23px;
+    }
+    .frOptimaleQualitt1 {
+        font-size: 19px;
+    }
+    .bitteLadenSie2 {
+        font-size: 23px;
+    }
+    .frOptimaleQualitt2 {
+        font-size: 19px;
+    }
+    .bitteLadenSie3 {
+        font-size: 23px;
+    }
+    .frOptimaleQualitt3 {
+        font-size: 19px;
+    }
+    .buttonframe4 {
+        gap: 25px;
+    }
+    .company1,
+    .more1,
+    .support1 {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .footer {
+        gap: 21px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    .upload {
+        gap: 25px;
+    }
+}
+
+
+/* Necessary CSS for Upload Form */
+.upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #0a141b;
+    color: #fff;
+    gap: 20px;
+}
+
+.uploadInner, .uploadChild, .uploadInner1, .uploadInner2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    gap: 50px;
+}
+
+.ligenWrapper, .buttonframeWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bundeslandCell {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for Buttons */
+.button, .buttonOutlined {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button {
+    background-color: #ea9805;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #094db2;
+}
+
+.buttonOutlined {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.buttonOutlined:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Loading State */
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Responsive Design Adjustments */
+@media screen and (max-width: 1200px) {
+    .buttonframe, .buttonframe1, .buttonframe2, .buttonframe3, .buttonframe4,
+    .bitteLadenSieIhrWappenlogParent, .bitteLadenSieDenAusweisVoParent,
+    .bitteLadenSieEineKopieIhrParent, .bitteLadenSieDenUnterzeichParent,
+    .sterreichischerKleinfeldFubParent {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .sterreichischerKleinfeldFub, .jetztNeuRegistrieren, .bitteLadenSie,
+    .bitteLadenSie1, .bitteLadenSie2, .bitteLadenSie3 {
+        font-size: 18px;
+    }
+
+    .frOptimaleQualitt, .frOptimaleQualitt1, .frOptimaleQualitt2, .frOptimaleQualitt3 {
+        font-size: 16px;
+    }
+
+    .buttonframe4 {
+        gap: 20px;
+    }
+
+    .company1, .more1, .support1 {
+        font-size: 14px;
+    }
+
+    .footer {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .upload {
+        gap: 15px;
+    }
+}

@@ -1,0 +1,26 @@
+.wappenIcon {
+  width: 52px;
+  height: 58px;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.bundesland {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: #191e25;
+  height: 121px;
+  padding: 13px 5px;
+  box-sizing: border-box;
+  min-width: 100px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.8rem;
+}

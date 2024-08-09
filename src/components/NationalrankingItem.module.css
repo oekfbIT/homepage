@@ -1,0 +1,32 @@
+.flagIcon,
+.rank {
+  position: relative;
+}
+.rank {
+  font-size: 17px;
+  font-weight: 600;
+}
+.flagIcon {
+  width: 25.8px;
+  height: 14.6px;
+  object-fit: cover;
+}
+.coumtry,
+.points {
+  position: relative;
+  font-weight: 600;
+}
+.points {
+  font-weight: 300;
+}
+.nationalrankingitem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 7.7px;
+  text-align: left;
+  font-size: 13.1px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}

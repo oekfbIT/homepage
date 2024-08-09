@@ -1,0 +1,142 @@
+.groupIcon {
+  width: 187px;
+  position: relative;
+  height: 68.6px;
+}
+.sterreichischerKleinfeld {
+  margin: 0;
+  font-weight: 800;
+}
+.blankLine {
+  margin: 0;
+  font-weight: 500;
+}
+.sterreichischerKleinfeldFubContainer {
+  align-self: stretch;
+  position: relative;
+  text-decoration: none; /* Removes the underline */
+  color: #fff; /* Sets the link text color to white */
+
+}
+.vectorIcon {
+  position: absolute;
+  height: 96%;
+  width: 96%;
+  top: 2%;
+  right: 2%;
+  bottom: 2%;
+  left: 2%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.entypoSocialfacebookWithCi,
+.entypoSocialinstagramWithC,
+.entypoSocialtwitterWithCir {
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+}
+.entypoSocialinstagramWithC,
+.entypoSocialtwitterWithCir {
+  left: 100px;
+}
+.entypoSocialinstagramWithC {
+  left: 50px;
+}
+.socialIcons {
+  width: 130px;
+  position: relative;
+  height: 30px;
+}
+.fickleflightBio {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 40px !important;
+}
+.company1 {
+  align-self: stretch;
+  position: relative;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 500;
+}
+.company,
+.more {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.footer,
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.footerLinks {
+  flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  /*min-width: 350px;*/
+  font-size: 16px;
+  font-family: Roboto;
+}
+.footer {
+  align-self: stretch;
+  background-color: #191e25;
+  align-items: center;
+  justify-content: center;
+  padding: 33px 84px;
+  gap: 44px;
+  text-align: left;
+  font-size: 11.6px;
+  color: #fff;
+  font-family: Inter;
+}
+@media screen and (max-width: 1200px) {
+  .footer {
+    padding: 40px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 960px) {
+  .fickleflightBio,
+  .footerLinks {
+    flex: unset;
+    align-self: stretch;
+  }
+  .footer {
+    flex-direction: column;
+    padding: 40px 24px 30px;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 420px) {
+  .company {
+    margin-bottom: 40px !important;
+  }
+  .company,
+  .more {
+    flex: unset;
+    align-self: stretch;
+  }
+  .footerLinks {
+    flex-direction: column;
+  }
+  .footer {
+    padding: 30px 24px;
+    box-sizing: border-box;
+  }
+}

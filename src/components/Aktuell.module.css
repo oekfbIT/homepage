@@ -1,0 +1,25 @@
+.aktuell1 {
+  position: relative;
+  font-weight: 600;
+}
+.aktuell,
+.title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.title {
+  align-self: stretch;
+  height: 36px;
+  flex-direction: row;
+}
+.aktuell {
+  width: 100%;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  text-align: left;
+  font-size: 29px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}

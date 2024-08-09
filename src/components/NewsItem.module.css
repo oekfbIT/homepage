@@ -1,0 +1,53 @@
+.image1Icon {
+  position: relative;
+
+  object-fit: cover;
+  min-height: 68.49px;
+}
+.winBigPrizes {
+  margin: 0;
+  font-size: 16px; /* Updated font size */
+
+}
+.winBigPrizesContainer {
+  font-size: 9.1px;
+  font-weight: 600;
+}
+.div,
+.toCelebrateBundesliga,
+.winBigPrizesContainer {
+  align-self: stretch;
+  position: relative;
+}
+.div {
+  color: #b7b7b7;
+}
+.winBigPrizesAsPartOfBundParent {
+  align-self: stretch;
+  justify-content: flex-start;
+  gap: 5.9px;
+}
+.info,
+.newsItem,
+.winBigPrizesAsPartOfBundParent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.info {
+  background-color: #191e25;
+  justify-content: center;
+  padding: 8.7px 8.2px;
+  box-sizing: border-box;
+}
+.newsItem {
+  overflow: hidden;
+  justify-content: flex-start;
+  text-align: left;
+  font-size: 7.3px;
+  color: #fff;
+  font-family: "Lexend Deca";
+  font-size: 14px;
+  font-weight: 200;
+  width: 250px;
+}

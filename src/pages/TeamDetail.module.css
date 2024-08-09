@@ -1,0 +1,55 @@
+.logoIcon {
+  width: 187px;
+  position: relative;
+  height: 68.6px;
+}
+.navigationbar {
+  align-self: stretch;
+  background-color: #191e25;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 32px;
+}
+.kader {
+  align-self: stretch;
+  position: relative;
+  font-weight: 600;
+}
+.kaderWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+}
+.season20242025 {
+  align-self: stretch;
+  position: relative;
+  font-size: 26px;
+}
+.spielplanParent,
+.teamDetail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.spielplanParent {
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 1200px;
+}
+.teamDetail {
+  position: relative;
+  background-color: #0a141b;
+  align-items: center;
+  gap: 50px;
+  text-align: left;
+  font-size: 29px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}

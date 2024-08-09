@@ -1,0 +1,87 @@
+.teamheader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between; /* Distribute space evenly */
+  background-color: #191e25;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  width: 100%; /* Takes up as much width as possible */
+  margin: 0 auto; /* Centers the element horizontally */
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  font-family: "Lexend Deca";
+  gap: 20px; /* Adjusted gap for better spacing */
+}
+
+.left {
+  display: flex;
+  flex-direction: column; /* Aligns logo and name in a row */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: auto; /* Allow the width to adjust based on content */
+  max-width: none;
+}
+
+.logoIcon {
+  width: 102px;
+  height: 102px;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: 600;
+  display: inline-block;
+  text-align: left;
+  width: auto; /* Adjust width to content */
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 279px;
+}
+
+.liga {
+  font-weight: 600;
+}
+
+.socials {
+  display: flex; /* Aligns social icons in a row */
+  gap: 10px;
+  position: relative;
+  height: 30px;
+  width: auto;
+}
+
+.entypoSocialfacebookWithCi,
+.entypoSocialinstagramWithC,
+.entypoSocialtwitterWithCir {
+  text-decoration: none;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.homeIcon {
+  height: 200px;
+  object-fit: cover;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: auto;
+}

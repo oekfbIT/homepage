@@ -1,0 +1,17 @@
+.logoIcon {
+  width: 187px;
+  position: relative;
+  height: 68.6px;
+}
+.navigationbar {
+  align-self: stretch;
+  background-color: #191e25;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10px 32px;
+}
+
+.wrapper { max-width: 1200px}

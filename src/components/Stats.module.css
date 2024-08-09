@@ -1,0 +1,11 @@
+.stats {
+  width: 1200px;
+  max-width: 1200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}

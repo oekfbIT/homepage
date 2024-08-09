@@ -1,0 +1,68 @@
+.joined {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  font-weight: 600;
+}
+.logoIcon {
+  width: 40px;
+  position: relative;
+  height: 29px;
+  object-fit: cover;
+}
+.joined1 {
+  position: relative;
+  font-weight: 600;
+}
+.hometeam {
+  position: absolute;
+  top: 0;
+  left: 29px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 21px;
+  text-align: left;
+}
+.leffblock {
+  width: 179px;
+  position: relative;
+  height: 29px;
+}
+.statitemParent {
+  justify-content: flex-start;
+  gap: 19px;
+}
+.content,
+.rankingCell,
+.rightblock,
+.statitemParent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.rightblock {
+  justify-content: flex-start;
+  gap: 28px;
+}
+.content,
+.rankingCell {
+  flex-wrap: wrap;
+}
+.content {
+  flex: 1;
+  justify-content: space-between;
+}
+.rankingCell {
+  background-color: #191e24;
+  max-width: 100%;
+  justify-content: flex-start;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  font-family: "Lexend Deca";
+  align-self: stretch;
+}

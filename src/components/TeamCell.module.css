@@ -1,0 +1,55 @@
+.logoIcon {
+  width: 40px;
+  position: relative;
+  height: 40px;
+  object-fit: cover;
+}
+.joined,
+.name {
+  position: absolute;
+  left: 0;
+}
+.joined {
+  top: 0;
+  font-weight: 600;
+}
+.name {
+  top: 34px;
+  color: #b7b7b7;
+}
+.texts {
+  width: 89px;
+  position: relative;
+  height: 55px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+.teamCell {
+  width: 380px;
+  background-color: #191e24;
+  max-width: 100%;
+  height: 109px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  min-width: 360px;
+  text-align: left;
+  font-size: 17px;
+  color: #fff;
+  font-family: "Lexend Deca";
+}
+
+.link {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Keeps the link text color consistent */
+}
