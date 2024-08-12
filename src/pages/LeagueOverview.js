@@ -21,7 +21,7 @@ const LeagueOverview = () => {
                 try {
                     console.log('Fetching leagues for state:', stateName);
                     const response = await apiService.get(`leagues/state/${stateName}`);
-                    if (response && response.length > 0) {
+                    if (response) {
                         setLeagues(response);
                         setGotten(true);
                         setError(null);
