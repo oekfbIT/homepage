@@ -12,12 +12,12 @@ const TeamWrapper = ({ className = "", teams }) => {
                     key={index}
                     logo={team.logo}
                     teamName={team.team_name}
-                    foundationYear={team.foundation_year}
-                    coachName={team.coach.name}
-                    averageAge={team.average_age}
-                    captain={team.captain}
-                    homeTrikot={team.trikot.home}
-                    awayTrikot={team.trikot.away}
+                    foundationYear={team.foundation_year || "Unbekannt"}
+                    coachName={team.coach?.name || "Kein Coach"}
+                    averageAge={team.average_age || "Unbekannt"}
+                    captain={team.captain || "Kein Kapitän"}
+                    homeTrikot={team.trikot?.home || "No home trikot"}
+                    awayTrikot={team.trikot?.away || "No away trikot"}
                     teamCellWidth="360px"
                 />
             ))}
@@ -29,6 +29,8 @@ TeamWrapper.propTypes = {
     className: PropTypes.string,
     teams: PropTypes.arrayOf(PropTypes.shape({
         logo: PropTypes.string,
+        points: PropTypes.number,
+        teamCount: PropTypes.number,
         team_name: PropTypes.string,
         foundation_year: PropTypes.string,
         coach: PropTypes.shape({

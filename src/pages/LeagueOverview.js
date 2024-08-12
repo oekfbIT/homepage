@@ -6,28 +6,61 @@ import LigaWrapper from '../components/LigaWrapper';
 import ApiService from '../network/ApiService';
 import styles from './LeagueOverview.module.css';
 import Navigationbar from "../components/Navigationbar";
+import {toast} from "react-toastify";
 
 const LeagueOverview = () => {
     const { stateName } = useParams();
     const [leagues, setLeagues] = useState([]);
+    const [gotten, setGotten] = useState(false);
+    const [error, setError] = useState(null); // State to store error message
     const apiService = new ApiService();
 
     useEffect(() => {
-        if (stateName) {
-            apiService.get(`leagues/state/${stateName}`)
-                .then(response => {
-                    setLeagues(response);
-                })
-                .catch(error => {
+        const fetchLeagues = async () => {
+            if (stateName) {
+                try {
+                    console.log('Fetching leagues for state:', stateName);
+                    const response = await apiService.get(`leagues/state/${stateName}`);
+                    if (response && response.length > 0) {
+                        setLeagues(response);
+                        setGotten(true);
+                        setError(null);
+                        toast.success('Leagues fetched successfully');
+                    } else {
+                        setError('No leagues returned from API');
+                    }
+                } catch (error) {
                     console.error('Error fetching leagues:', error);
-                });
-        }
+                    setError(`Error fetching leagues: ${error.message}`);
+                    toast.error(`Error fetching leagues: ${error.message}`);
+                }
+            } else {
+                console.warn('No stateName provided in URL params');
+                setError('No stateName provided in URL params');
+            }
+        };
+        fetchLeagues();
     }, [stateName]);
 
     return (
         <div className={styles.leagueOverview}>
-            <Navigationbar/>
+            <Navigationbar />
             <BundeslanderSelectionRow />
+            <div>
+                {stateName ? (
+                    <p style={{ color: 'blue' }}>State Name from URL: {stateName}</p>
+                ) : (
+                    <p style={{ color: 'red' }}>No State Name provided in URL</p>
+                )}
+            </div>
+            {gotten ? (
+                <p style={{ color: 'green' }}>Leagues fetched successfully</p>
+            ) : (
+                <p style={{ color: 'red' }}>
+                    Leagues not fetched yet
+                    {error && `: ${error}`} {/* Display the error message if it exists */}
+                </p>
+            )}
             <LigaWrapper leagues={leagues} />
             <FooterMain />
         </div>

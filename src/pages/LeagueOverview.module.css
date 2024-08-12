@@ -19,7 +19,7 @@
 }
 .leagueOverview {
   width: 100%;
-  height: 100vh;
+  /*height: 100vh;*/
   position: relative;
   background-color: #0a141b;
   display: flex;              /* Ensure the container uses Flexbox */

@@ -6,6 +6,7 @@ import BundeslanderSelectionRow from '../components/BundeslanderSelectionRow';
 import Navigationbar from '../components/Navigationbar';
 import ApiService from '../network/ApiService';
 import styles from './LeagueDetail.module.css';
+import { toast } from 'react-toastify';
 
 const LeagueDetail = () => {
     const { id } = useParams();
@@ -13,15 +14,15 @@ const LeagueDetail = () => {
     const apiService = new ApiService();
 
     const bundeslandData = [
-        { name: 'wien', wappen: '/wappen10@2x.png', href: "/league/wien"},
-        { name: 'oberoesterreich', wappen: '/wappen11@2x.png', href: "/league/oberoesterreich"},
-        { name: 'steiermark', wappen: '/wappen12@2x.png', href: "/league/steiermark"},
-        { name: 'kaernten', wappen: '/wappen13@2x.png', href: "/league/kaernten"},
-        { name: 'niederoesterreich', wappen: '/wappen4@2x.png', href: "/league/niederoesterreich"},
-        { name: 'tirol', wappen: '/wappen14@2x.png', href: "/league/tirol"},
-        { name: 'vorarlberg', wappen: '/wappen15@2x.png', href: "/league/vorarlberg"},
-        { name: 'salzburg', wappen: '/wappen16@2x.png', href: "/league/salzburg"},
-        { name: 'burgenland', wappen: '/wappen17@2x.png', href: "/league/burgenland"},
+        { name: 'wien', wappen: '/wappen10@2x.png', href: "/league/wien" },
+        { name: 'oberoesterreich', wappen: '/wappen11@2x.png', href: "/league/oberoesterreich" },
+        { name: 'steiermark', wappen: '/wappen12@2x.png', href: "/league/steiermark" },
+        { name: 'kaernten', wappen: '/wappen13@2x.png', href: "/league/kaernten" },
+        { name: 'niederoesterreich', wappen: '/wappen4@2x.png', href: "/league/niederoesterreich" },
+        { name: 'tirol', wappen: '/wappen14@2x.png', href: "/league/tirol" },
+        { name: 'vorarlberg', wappen: '/wappen15@2x.png', href: "/league/vorarlberg" },
+        { name: 'salzburg', wappen: '/wappen16@2x.png', href: "/league/salzburg" },
+        { name: 'burgenland', wappen: '/wappen17@2x.png', href: "/league/burgenland" },
     ];
 
     useEffect(() => {
@@ -29,9 +30,11 @@ const LeagueDetail = () => {
             apiService.get(`leagues/code/${id}`)
                 .then(response => {
                     setLeague(response);
+                    toast.success('League data fetched successfully');
                 })
                 .catch(error => {
                     console.error('Error fetching league:', error);
+                    toast.error('Error fetching league');
                 });
         }
     }, [id]);
@@ -40,8 +43,7 @@ const LeagueDetail = () => {
         return <div>Loading...</div>;
     }
 
-    // Find the correct wappen image based on the league state
-    const leagueWappen = bundeslandData.find(b => b.name.toLowerCase() === league.state.toLowerCase())?.wappen || '/default-wappen.png';
+    const leagueWappen = bundeslandData.find(b => b.name.toLowerCase() === league?.state?.toLowerCase())?.wappen || '/default-wappen.png';
 
     return (
         <div className={styles.leagueDetail}>
@@ -50,10 +52,10 @@ const LeagueDetail = () => {
 
             <div className={styles.ligen}>
                 <div className={styles.bundeslandCell}>
-                    <img className={styles.wappenIcon} alt={`${league.state} wappen`} src={leagueWappen} />
+                    <img className={styles.wappenIcon} alt={`${league?.state} wappen`} src={leagueWappen} />
                     <div className={styles.name}>
-                        <a className={styles.wiener1}>{league.name.split(' ')[0]}</a>
-                        <p className={styles.liga}>{league.name.split(' ')[1]}</p>
+                        <a className={styles.wiener1}>{league?.name?.split(' ')[0]}</a>
+                        <p className={styles.liga}>{league?.name?.split(' ')[1]}</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@ const LeagueDetail = () => {
                 <div className={styles.season20242025}>Season 2024-2025</div>
             </div>
             <TeamWrapper
-                teams={league.teams}
+                teams={league?.teams || []}
             />
             <FooterMain />
         </div>
@@ -71,6 +73,7 @@ const LeagueDetail = () => {
 };
 
 export default LeagueDetail;
+
 
 
 {/*<div className={styles.mannschaftenParent}>*/}

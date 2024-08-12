@@ -7,3 +7,8 @@
   justify-content: flex-start;
   gap: 10px;
 }
+@media (max-width: 768px) {
+  .ligawrapper {
+    justify-content: center;
+  }
+}
