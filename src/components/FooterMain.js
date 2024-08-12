@@ -16,7 +16,7 @@ const FooterMain = ({ className = "" }) => {
             <p className={styles.blankLine}>&nbsp;</p>
             <p className={styles.blankLine}>1020 Wien, Darwingasse 6/4</p>
             <p className={styles.blankLine}>ÖKFB </p>
-            <p className={styles.blankLine}>support@oekfb.eu</p>
+            <p className={styles.blankLine}>office@oekfb.eu</p>
           </div>
           <div className={styles.socialIcons}>
             <a

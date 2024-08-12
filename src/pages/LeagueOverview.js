@@ -46,21 +46,21 @@ const LeagueOverview = () => {
         <div className={styles.leagueOverview}>
             <Navigationbar />
             <BundeslanderSelectionRow />
-            <div>
-                {stateName ? (
-                    <p style={{ color: 'blue' }}>State Name from URL: {stateName}</p>
-                ) : (
-                    <p style={{ color: 'red' }}>No State Name provided in URL</p>
-                )}
-            </div>
-            {gotten ? (
-                <p style={{ color: 'green' }}>Leagues fetched successfully</p>
-            ) : (
-                <p style={{ color: 'red' }}>
-                    Leagues not fetched yet
-                    {error && `: ${error}`} {/* Display the error message if it exists */}
-                </p>
-            )}
+            {/*<div>*/}
+            {/*    {stateName ? (*/}
+            {/*        <p style={{ color: 'blue' }}>State Name from URL: {stateName}</p>*/}
+            {/*    ) : (*/}
+            {/*        <p style={{ color: 'red' }}>No State Name provided in URL</p>*/}
+            {/*    )}*/}
+            {/*</div>*/}
+            {/*{gotten ? (*/}
+            {/*    <p style={{ color: 'green' }}>Leagues fetched successfully</p>*/}
+            {/*) : (*/}
+            {/*    <p style={{ color: 'red' }}>*/}
+            {/*        Leagues not fetched yet*/}
+            {/*        {error && `: ${error}`} /!* Display the error message if it exists *!/*/}
+            {/*    </p>*/}
+            {/*)}*/}
             <LigaWrapper leagues={leagues} />
             <FooterMain />
         </div>
