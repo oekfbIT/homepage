@@ -19,7 +19,7 @@ const BlogDetail = () => {
                     const response = await apiService.get(`news/${id}`);
 
                     // Since the response is a single object, set it directly
-                    if (response && response.id) {
+                    if (response) {
                         setNewsItem(response);
                         toast.success('News item fetched successfully');
                     } else {

@@ -15,6 +15,7 @@ import Nationalteam from "./pages/Nationalteam";
 import Ligaordnung from "./pages/Ligaordnung";
 import Register from "./pages/Register";
 import Upload from "./pages/Upload";
+import BlogDetail from "./pages/BlogDetail";
 
 function App() {
   const action = useNavigationType();
@@ -85,6 +86,7 @@ function App() {
       <Route path="/ligaordnung" element={<Ligaordnung />} />
       <Route path="/league/:stateName" element={<LeagueOverview />} />
       <Route path="/team-detail/:id" element={<TeamDetail />} />
+      <Route path="/news/:id" element={<BlogDetail />} />
       <Route path="/nationalteam" element={<Nationalteam />} />
       <Route path="/register" element={<Register />} />
       <Route path="/team/upload/:id" element={<Upload />} />
