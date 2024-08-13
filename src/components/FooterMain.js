@@ -14,7 +14,7 @@ const FooterMain = ({ className = "" }) => {
             >{`Österreichischer Kleinfeld `}</p>
             <p className={styles.sterreichischerKleinfeld}>Fußball Bund</p>
             <p className={styles.blankLine}>&nbsp;</p>
-            <p className={styles.blankLine}>1020 Wien, Darwingasse 6/4</p>
+            <p className={styles.blankLine}>1020 Wien, Pazmanitengasse 15/7</p>
             <p className={styles.blankLine}>ÖKFB </p>
             <p className={styles.blankLine}>office@oekfb.eu</p>
           </div>

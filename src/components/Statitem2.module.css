@@ -2,15 +2,21 @@
 .value {
   position: relative;
 }
+
 .key {
   font-weight: 600;
   color: white;
 }
+
 .value {
   align-self: stretch;
   font-size: 18px;
   line-height: 33px;
+  white-space: pre-line; /* Allows text to wrap and preserve whitespace */
+  word-wrap: break-word; /* Break long words if necessary */
+  overflow-wrap: break-word; /* Ensures the text doesn't overflow */
 }
+
 .statitem {
   background-color: #191e25;
   max-width: 100%;
@@ -27,13 +33,13 @@
   font-size: 20px;
   color: #fff;
   font-family: "Lexend Deca";
-
 }
-.statItem ul {
+
+.statitem ul {
   list-style-type: decimal; /* Ensures numbering */
   margin-left: 20px; /* Indentation for list */
 }
 
-.statItem li {
+.statitem li {
   margin-bottom: 10px; /* Space between list items */
 }

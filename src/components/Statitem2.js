@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import styles from "./Statitem2.module.css";
 
 const Statitem2 = ({
-  className = "",
-  key,
-  value,
-  statitemFlex,
-  statitemAlignSelf,
-}) => {
+                     className = "",
+                     key,
+                     value,
+                     statitemFlex,
+                     statitemAlignSelf,
+                   }) => {
   const statitemStyle = useMemo(() => {
     return {
       flex: statitemFlex,
@@ -17,20 +17,20 @@ const Statitem2 = ({
   }, [statitemFlex, statitemAlignSelf]);
 
   return (
-    <div
-      className={[styles.statitem, className].join(" ")}
-      style={statitemStyle}
-    >
-      <div className={styles.key}>{key}</div>
-      <div className={styles.value}>{value}</div>
-    </div>
+      <div
+          className={[styles.statitem, className].join(" ")}
+          style={statitemStyle}
+      >
+        <div className={styles.key}>{key}</div>
+        <div className={styles.value}>{value}</div>
+      </div>
   );
 };
 
 Statitem2.propTypes = {
   className: PropTypes.string,
   key: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
 
   /** Style props */
   statitemFlex: PropTypes.any,
