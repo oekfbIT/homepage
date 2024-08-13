@@ -282,17 +282,17 @@ const Register = () => {
                                 )}
                             />
                         </div>
-                        <Controller
-                            name="referCode"
-                            control={control}
-                            render={({field}) => (
-                                <input
-                                    className={`${styles.input11} ${errors.referCode ? 'field--error' : ''}`}
-                                    placeholder="Refer Code"
-                                    {...field}
-                                />
-                            )}
-                        />
+                        {/*<Controller*/}
+                        {/*    name="referCode"*/}
+                        {/*    control={control}*/}
+                        {/*    render={({field}) => (*/}
+                        {/*        <input*/}
+                        {/*            className={`${styles.input11} ${errors.referCode ? 'field--error' : ''}`}*/}
+                        {/*            placeholder="Refer Code"*/}
+                        {/*            {...field}*/}
+                        {/*        />*/}
+                        {/*    )}*/}
+                        {/*/>*/}
                         <Controller
                             name="zip"
                             control={control}

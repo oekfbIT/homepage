@@ -19,6 +19,7 @@ const LeagueOverview = () => {
         const fetchLeagues = async () => {
             if (stateName) {
                 try {
+                    // console.log(apiService.get('status'));
                     console.log('Fetching leagues for state:', stateName);
                     const response = await apiService.get(`leagues/state/${stateName}`);
                     if (response) {

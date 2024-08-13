@@ -35,6 +35,7 @@ const Newswrapper = ({ className = "" }) => {
                 {newsItems.map((item) => (
                     <NewsItem
                         key={item.id}
+                        id={item.id}  // Pass the id to the NewsItem component
                         image1={item.image}
                         text={item.text}
                         date={item.created}

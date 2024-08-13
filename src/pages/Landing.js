@@ -15,11 +15,11 @@ const Landing = () => {
       <Navigationbar />
       <ImageHeader />
       <BundeslanderSelectionRow />
+        <Newswrapper />
       <Nationalteam />
       {/*<Aktuell />*/}
       {/*<Events />*/}
       <Banner />
-      {/*<Newswrapper />*/}
       <FooterMain />
     </div>
   );
