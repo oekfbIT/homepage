@@ -13,7 +13,7 @@ const ImageHeader = ({ className = "" }) => {
             </p>
           </div>
           <div className={styles.toCelebrateBundesliga}>
-            Wir freuen uns, Ihnen mitteilen zu können, dass unser System mit neuen Funktionen und erweiterten Steuerungsmöglichkeiten aktualisiert wird, um Ihre Prozesse zu automatisieren und zu optimieren. Bitte beachten Sie, dass die neuen Login-Informationen am 23. August 2024 bereitgestellt werden. Bleiben Sie gespannt auf weitere Informationen, während wir die Einführung dieser neuen Plattform vorbereiten, die Effizienz und Benutzerfreundlichkeit erheblich steigern wird.
+            Wir freuen uns, Ihnen mitteilen zu können, dass unser System mit neuen Funktionen und erweiterten Steuerungsmöglichkeiten aktualisiert wird, um Ihre Prozesse zu automatisieren und zu optimieren. Bitte beachten Sie, dass die neuen Login-Informationen am 20. August 2024 bereitgestellt werden. Bleiben Sie gespannt auf weitere Informationen, während wir die Einführung dieser neuen Plattform vorbereiten, die Effizienz und Benutzerfreundlichkeit erheblich steigern wird.
           </div>
         </div>
       </div>
