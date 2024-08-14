@@ -13,7 +13,7 @@ const TeamCell = ({ id, logo, teamName, foundationYear, coachName, averageAge, c
     return (
         <Link to={`/team-detail/${id}`} className={styles.link}>
             <div className={styles.teamCell} style={{ width: teamCellWidth }}>
-                <img src={"https://oekfb.com/" + logo} alt={`${teamName} logo`} className={styles.logoIcon} />
+                <img src={logo} alt={`${teamName} logo`} className={styles.logoIcon} />
                 <div className={styles.teamInfo}>
                     <h3 className={styles.teamName}> {teamName}</h3>
                 </div>

@@ -5,7 +5,7 @@ const TeamHeader = ({ className = "", logo, name, league, membership_since, aver
   return (
       <div className={[styles.teamheader, className].join(" ")}>
         <div className={styles.left}>
-          <img className={styles.logoIcon} alt="" src={"https://oekfb.com/" + logo} />
+          <img className={styles.logoIcon} alt="" src={logo} />
           <div className={styles.name}>{name}</div>
         </div>
         <div className={styles.middle}>
