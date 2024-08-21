@@ -9,12 +9,13 @@ const ImageHeader = ({ className = "" }) => {
         <div className={styles.winBigPrizesAsPartOfBundParent}>
           <div className={styles.winBigPrizesContainer}>
             <p className={styles.winBigPrizes}>
-              Willkommen im neuen System
+              Liebe ÖKFB Mitglieder,
             </p>
           </div>
           <div className={styles.toCelebrateBundesliga}>
-            Wir freuen uns, Ihnen mitteilen zu können, dass unser System mit neuen Funktionen und erweiterten Steuerungsmöglichkeiten aktualisiert wird, um Ihre Prozesse zu automatisieren und zu optimieren. Bitte beachten Sie, dass die neuen Login-Informationen am 20. August 2024 bereitgestellt werden. Bleiben Sie gespannt auf weitere Informationen, während wir die Einführung dieser neuen Plattform vorbereiten, die Effizienz und Benutzerfreundlichkeit erheblich steigern wird.
-          </div>
+            Liebe ÖKFB Mitglieder,
+            Aufgrund der großen Umstellungen kommt es zu leichten Verzögerungen. Die Login Daten der Teams werden im Laufe der Woche an die angegebene E-Mail Adresse versendet. Falls ihr diese Woche keine Login Daten bekommt, bitten wir euch uns eine Mail an support@oekfb.eu zu senden.
+            Vielen Dank für euer Verständnis.          </div>
         </div>
       </div>
     </div>
