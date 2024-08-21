@@ -9,7 +9,7 @@ const ImageHeader = ({ className = "" }) => {
         <div className={styles.winBigPrizesAsPartOfBundParent}>
           <div className={styles.winBigPrizesContainer}>
             <p className={styles.winBigPrizes}>
-              Liebe ÖKFB Mitglieder,
+              Team Login Verzögerung,
             </p>
           </div>
           <div className={styles.toCelebrateBundesliga}>
