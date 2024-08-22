@@ -6,7 +6,7 @@ const Nationalteam = ({ className = "" }) => {
   return (
     <div className={[styles.nationalteam, className].join(" ")}>
       <div className={styles.title}>
-        <div className={styles.nationalMannschaft}>National Mannschaft</div>
+        <div className={styles.nationalMannschaft}>Nationalmannschaft</div>
       </div>
       <div className={styles.rectangleParent}>
         <img className={styles.frameChild} alt="" src="/rectangle-5@2x.png" />
