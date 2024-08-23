@@ -11,6 +11,8 @@
 .value {
   align-self: stretch;
   font-size: 18px;
+  font-weight: 400;
+  color: #b7b7b7;
   line-height: 33px;
   white-space: pre-line; /* Allows text to wrap and preserve whitespace */
   word-wrap: break-word; /* Break long words if necessary */
