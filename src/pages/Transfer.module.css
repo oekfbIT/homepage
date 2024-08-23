@@ -1,0 +1,164 @@
+/* Global font styles */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600&display=swap');
+
+.upload, .transferCard, .playerName, .teamName, .transferMessage, .button, .buttonOutlined {
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+/* Container */
+.upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    background-color: #0a141b;
+    color: #fff;
+    gap: 20px;
+}
+
+/* Card for Transfer Details */
+.transferCard {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #1e2a38;
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Player Information */
+.playerInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.playerImage {
+    width: 100%;
+    max-width: 30px;
+    border-radius: 30%;
+    object-fit: cover;
+}
+
+.playerName {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Team Information */
+.teamInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.teamLogo {
+    width: 100%;
+    max-width: 80px;
+    object-fit: cover;
+}
+
+.teamName {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Transfer Message */
+.transferMessage {
+    font-size: 18px;
+    max-width: 800px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 20px;
+    color: #e0e0e0;
+}
+
+/* Button Container */
+.buttonframeWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.button,
+.buttonOutlined {
+    cursor: pointer;
+    border: 0;
+    padding: 15px 30px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.button {
+    background-color: #ea9805;
+    color: #fff;
+}
+
+.button:hover {
+    background-color: #094db2;
+}
+
+.buttonOutlined {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.buttonOutlined:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .transferCard {
+        padding: 15px;
+    }
+
+    .playerName, .teamName {
+        font-size: 20px;
+    }
+
+    .transferMessage {
+        font-size: 16px;
+        margin: 0 10px;
+    }
+
+    .button,
+    .buttonOutlined {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .playerName, .teamName {
+        font-size: 18px;
+    }
+
+    .transferMessage {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+
+    .button,
+    .buttonOutlined {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}

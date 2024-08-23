@@ -8,3 +8,6 @@ body {
   min-width: 100%;
   background-color: #0a141b;
 }
+html {
+  scroll-behavior: smooth;
+}

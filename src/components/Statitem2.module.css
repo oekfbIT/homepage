@@ -44,4 +44,5 @@
 
 .statitem li {
   margin-bottom: 10px; /* Space between list items */
+  list-style-type: none; /* Hides default bullets */
 }

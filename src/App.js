@@ -16,6 +16,7 @@ import Ligaordnung from "./pages/Ligaordnung";
 import Register from "./pages/Register";
 import Upload from "./pages/Upload";
 import BlogDetail from "./pages/BlogDetail";
+import Transfer from "./pages/Transfer";
 
 function App() {
   const action = useNavigationType();
@@ -90,6 +91,7 @@ function App() {
       <Route path="/nationalteam" element={<Nationalteam />} />
       <Route path="/register" element={<Register />} />
       <Route path="/team/upload/:id" element={<Upload />} />
+      <Route path="/transfer/:id" element={<Transfer />} />
     </Routes>
   );
 }
