@@ -81,6 +81,7 @@ const Upload = () => {
         console.log(data)
         try {
             const payload = {
+                id: data.id,
                 primary: {
                     ...data.primary,
                     identification: data.primary.identification
