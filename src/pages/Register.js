@@ -58,7 +58,7 @@ const Register = () => {
             };
             await apiService.post('registrations/register', payload);
             alert('Registration submitted!');
-            // window.location.href = '/thankyou';
+            window.location.href = '/thankyou';
         } catch (errorInfo) {
             alert('Registration failed: ' + errorInfo.message);
         }

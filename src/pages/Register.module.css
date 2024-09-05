@@ -803,7 +803,7 @@
     cursor: pointer;
     border: 0;
     padding: 15px 30px;
-    background-color: #ea9805;
+    background: orange;
     border-radius: 6px;
     overflow: hidden;
     flex-direction: row;
@@ -813,7 +813,7 @@
     max-height: 52px;
 }
 .button:hover {
-    background-color: #094db2;
+    background-color: orange;
 }
 .abbrechen {
     position: relative;

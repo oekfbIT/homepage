@@ -17,6 +17,8 @@ import Register from "./pages/Register";
 import Upload from "./pages/Upload";
 import BlogDetail from "./pages/BlogDetail";
 import Transfer from "./pages/Transfer";
+import Thankyou from "../src/pages/Thankyou";
+import ThankyouUpload from "../src/pages/ThankyouUpload";
 
 function App() {
   const action = useNavigationType();
@@ -92,6 +94,8 @@ function App() {
       <Route path="/register" element={<Register />} />
       <Route path="/team/upload/:id" element={<Upload />} />
       <Route path="/transfer/:id" element={<Transfer />} />
+      <Route path="/thankyou" element={<Thankyou />} />
+      <Route path="/thank_you" element={<ThankyouUpload />} />
     </Routes>
   );
 }

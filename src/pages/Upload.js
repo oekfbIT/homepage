@@ -102,7 +102,7 @@ const Upload = () => {
             };
             await apiService.patch(`registrations/${registrationData.id}`, payload); // Use the correct URL
             toast.success('Registrierung erfolgreich eingereicht!');
-            window.location.href = '/thankyou';
+            window.location.href = '/thank_you';
         } catch (errorInfo) {
             toast.error('Registrierung fehlgeschlagen: ' + errorInfo.message);
         }

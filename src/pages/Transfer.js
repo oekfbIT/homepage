@@ -47,7 +47,7 @@ const Transfer = () => {
     const handleDecline = async () => {
         try {
             const response = await apiService.get(`transfers/reject/${id}`);
-            if (response.id) {
+            if (response) {
                 navigate('/');
             }
         } catch (error) {
