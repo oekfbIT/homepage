@@ -13,6 +13,7 @@ const Playerslist = ({ className = "", players }) => {
                 birthday={player.birthday}
                 position={player.position}
                 image={player.image}
+                eligibility={player.eligibility}
             />
         ))}
       </div>
@@ -28,6 +29,7 @@ Playerslist.propTypes = {
     birthday: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
   })).isRequired,
 };
 
