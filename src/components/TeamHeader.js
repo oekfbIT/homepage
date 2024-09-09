@@ -13,17 +13,17 @@ const TeamHeader = ({ className = "", logo, name, league, membership_since, aver
           <div className={styles.liga}>{membership_since}</div>
           <div className={styles.liga}>{average_age}</div>
           <div className={styles.liga}>{foundation_year}</div>
-          <div className={styles.socials}>
-            <a className={styles.entypoSocialfacebookWithCi}>
-              <img className={styles.vectorIcon} alt="" src="/vector.svg" />
-            </a>
-            <a className={styles.entypoSocialtwitterWithCir}>
-              <img className={styles.vectorIcon} alt="" src="/vector1.svg" />
-            </a>
-            <a className={styles.entypoSocialinstagramWithC}>
-              <img className={styles.vectorIcon} alt="" src="/vector2.svg" />
-            </a>
-          </div>
+          {/*<div className={styles.socials}>*/}
+          {/*  <a className={styles.entypoSocialfacebookWithCi}>*/}
+          {/*    <img className={styles.vectorIcon} alt="" src="/vector.svg" />*/}
+          {/*  </a>*/}
+          {/*  <a className={styles.entypoSocialtwitterWithCir}>*/}
+          {/*    <img className={styles.vectorIcon} alt="" src="/vector1.svg" />*/}
+          {/*  </a>*/}
+          {/*  <a className={styles.entypoSocialinstagramWithC}>*/}
+          {/*    <img className={styles.vectorIcon} alt="" src="/vector2.svg" />*/}
+          {/*  </a>*/}
+          {/*</div>*/}
         </div>
         <div className={styles.right}>
           <img className={styles.homeIcon} alt="Home Trikot" src={trikot.home} />
