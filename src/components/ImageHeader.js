@@ -12,7 +12,7 @@ const ImageHeader = ({ className = "" }) => {
               Saisonstart
             </p>
             <p className={styles.toCelebrateBundesliga}>
-              Wichtiges update bis 8.9.2024,
+              Wichtiges update bis 22.9.2024,
             </p>
             <p className={styles.toCelebrateBundesliga}>
               Sehr geehrte Mannschaftsleiter,,

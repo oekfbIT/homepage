@@ -59,7 +59,7 @@ const LeagueDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className={styles.saisonStart1592024}>Saison Start: 15.9.2024</div>
+            <div className={styles.saisonStart1592024}>Saison Start: 22.9.2024</div>
             <div className={styles.mannschaftenParent}>
                 <div className={styles.lmannschaften}>Mannschaften</div>
                 <div className={styles.season20242025}>Season 2024-2025</div>
@@ -67,6 +67,7 @@ const LeagueDetail = () => {
             <TeamWrapper
                 teams={league?.teams || []}
             />
+
             <FooterMain />
         </div>
     );
