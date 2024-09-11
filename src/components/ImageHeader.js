@@ -29,7 +29,6 @@ const ImageHeader = ({ className = "" }) => {
             <p>
               Wir entschuldigen uns und bitten um Verständnis.
             </p>
-
             <p>
               In diesem Zuge wollen wir auch alle Teamleiter noch einmal daran erinnern, dass sie bitte ihre Spieler spielberechtigen um für das erste Spiel bereit zu sein.
             </p>

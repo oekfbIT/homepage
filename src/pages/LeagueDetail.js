@@ -5,12 +5,14 @@ import FooterMain from '../components/FooterMain';
 import BundeslanderSelectionRow from '../components/BundeslanderSelectionRow';
 import Navigationbar from '../components/Navigationbar';
 import ApiService from '../network/ApiService';
+import Matchcell from '../components/Matchcell'; // Import the Matchcell component
 import styles from './LeagueDetail.module.css';
 import { toast } from 'react-toastify';
 
 const LeagueDetail = () => {
     const { id } = useParams();
     const [league, setLeague] = useState(null);
+    const [matchesByGameday, setMatchesByGameday] = useState({});
     const apiService = new ApiService();
 
     const bundeslandData = [
@@ -30,6 +32,21 @@ const LeagueDetail = () => {
             apiService.get(`leagues/code/${id}`)
                 .then(response => {
                     setLeague(response);
+
+                    const seasonId = response?.seasons?.[0]?.id;
+                    if (seasonId) {
+                        apiService.get(`seasons/${seasonId}/matches`)
+                            .then(matchesResponse => {
+                                setMatchesByGameday(groupMatchesByGameday(matchesResponse.matches));
+                            })
+                            .catch(error => {
+                                console.error('Error fetching matches:', error);
+                                toast.error('Error fetching matches');
+                            });
+                    } else {
+                        toast.error('Season not found in the league response');
+                    }
+
                     toast.success('League data fetched successfully');
                 })
                 .catch(error => {
@@ -38,6 +55,35 @@ const LeagueDetail = () => {
                 });
         }
     }, [id]);
+
+    const groupMatchesByGameday = (matches) => {
+        return matches.reduce((acc, match) => {
+            const gameday = match?.details?.gameday || 'Unknown'; // Fixed gameday handling
+            if (!acc[gameday]) {
+                acc[gameday] = [];
+            }
+            acc[gameday].push(match);
+            return acc;
+        }, {});
+    };
+
+    const formatGamedayDate = (matches) => {
+        if (!matches.length) return '';
+
+        const firstMatchDate = matches[0]?.details?.date;
+        if (!firstMatchDate) return '';
+
+        // Create a Date object from the first match's date
+        const date = new Date(firstMatchDate);
+
+        // Format the date as So., 22.09.2024
+        return new Intl.DateTimeFormat('de-DE', {
+            weekday: 'short',
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        }).format(date);
+    };
 
     if (!league) {
         return <div>Loading...</div>;
@@ -59,14 +105,40 @@ const LeagueDetail = () => {
                     </div>
                 </div>
             </div>
+
             <div className={styles.saisonStart1592024}>Saison Start: 22.9.2024</div>
             <div className={styles.mannschaftenParent}>
                 <div className={styles.lmannschaften}>Mannschaften</div>
                 <div className={styles.season20242025}>Season 2024-2025</div>
             </div>
-            <TeamWrapper
-                teams={league?.teams || []}
-            />
+
+            <TeamWrapper teams={league?.teams || []} />
+
+            {/* Render matches organized by gameday */}
+            {Object.keys(matchesByGameday).map(gameday => {
+                // Filter matches by valid date
+                const filteredMatches = matchesByGameday[gameday].filter(match => match?.details?.date);
+
+                // Only render the section if there are filtered matches
+                if (filteredMatches.length === 0) return null;
+
+                // Get the formatted date from the first match of the gameday
+                const formattedDate = formatGamedayDate(filteredMatches);
+
+                return (
+                    <div key={gameday} className={styles.gamedaySection}>
+                        <h3 className={styles.sectionHeader}>
+                            {gameday}. Spieltag - {formattedDate}
+                        </h3>
+                        {filteredMatches.map(match => (
+                            <Matchcell
+                                key={match.id}
+                                matchData={match}  // Pass the entire match data
+                            />
+                        ))}
+                    </div>
+                );
+            })}
 
             <FooterMain />
         </div>
@@ -74,31 +146,3 @@ const LeagueDetail = () => {
 };
 
 export default LeagueDetail;
-
-
-
-{/*<div className={styles.mannschaftenParent}>*/}
-{/*    <div className={styles.mannschaften}>Spielplan</div>*/}
-{/*    <div className={styles.season20242025}>Season 2024-2025</div>*/}
-{/*</div>*/}
-{/*<Matchday*/}
-{/*    rectangle10="/rectangle-10@2x.png"*/}
-{/*    rectangle9="/rectangle-9@2x.png"*/}
-{/*    rectangle101="/rectangle-10@2x.png"*/}
-{/*    rectangle91="/rectangle-9@2x.png"*/}
-{/*    rectangle102="/rectangle-10@2x.png"*/}
-{/*    rectangle92="/rectangle-9@2x.png"*/}
-{/*    rectangle103="/rectangle-10@2x.png"*/}
-{/*    rectangle93="/rectangle-9@2x.png"*/}
-{/*/>*/}
-{/*<div className={styles.mannschaftenParent}>*/}
-{/*    <div className={styles.mannschaften}>Tabelle</div>*/}
-{/*    <div className={styles.season20242025}>Season 2024-2025</div>*/}
-{/*    <RankingTabellele*/}
-{/*        logo="/logo3@2x.png"*/}
-{/*        logo1="/logo1@2x.png"*/}
-{/*        logo2="/logo1@2x.png"*/}
-{/*        logo3="/logo1@2x.png"*/}
-{/*        logo4="/logo1@2x.png"*/}
-{/*    />*/}
-{/*</div>*/}

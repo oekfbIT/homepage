@@ -3,6 +3,9 @@
   position: relative;
   height: 40px;
   object-fit: cover;
+  padding: 8px;
+  background-color: white;
+
 }
 .joined,
 .name {

@@ -1,43 +1,98 @@
-.hometeamChild {
-  width: 40px;
-  position: relative;
-  height: 29px;
-  object-fit: cover;
-}
-.joined {
-  position: relative;
-  font-weight: 600;
-}
-.awayteam,
-.content,
-.hometeam,
-.matchcell {
+.matchDetailsWrapper {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-.awayteam,
-.content,
-.matchcell {
-  align-items: flex-start;
-}
-.content,
-.matchcell {
   flex-direction: row;
-  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
-.content {
-  gap: 19px;
-}
-.matchcell {
-  background-color: #191e24;
-  max-width: 100%;
-  padding: 5px 20px;
-  box-sizing: border-box;
+
+.matchTime {
+  font-size: 14px;
+  flex: 1; /* Pushes the content towards the center */
   text-align: left;
-  font-size: 17px;
-  color: #fff;
-  font-family: "Lexend Deca";
+}
+
+.matchLocation {
+  font-size: 14px;
+  flex: 1; /* Pushes the content towards the center */
+  text-align: right;
+}
+
+.content {
+  display: flex;
+  justify-content: center; /* Ensures the content is always centered */
+  align-items: center;
+  flex-grow: 2; /* Allows content to grow and stay centered */
+}
+
+.teamData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Adjust gap between team logos and scores */
+  /*padding: 20px;*/
+}
+
+.hometeam, .awayteam {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.teamLogo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  padding: 3px;
+  background-color: white;
+  /*background-color: rgba(255, 255, 255, 0.2);*/
+}
+
+.teamNameL {
+  font-size: 14px;
+  width: 150px;
+  text-align: right;
+}
+
+.teamNameR {
+  font-size: 14px;
+  width: 150px;
+}
+
+/* Mobile styling */
+@media (max-width: 600px) {
+  .matchDetailsWrapper {
+    flex-direction: column;
+    align-items: center;
+    background-color: #191e24;
+    margin-bottom: 50px;
+  }
+
+  .matchTime, .matchLocation {
+    width: 100%;
+    text-align: center;
+  }
+
+  .content {
+    width: 100%;
+    justify-content: center;
+    background-color: #191e24;
+  }
+
+  .teamData {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .teamNameL {
+    font-size: 14px;
+    width: 80px;
+    text-align: right;
+  }
+
+  .teamNameR {
+    font-size: 14px;
+    width: 80px;
+  }
 }

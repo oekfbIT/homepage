@@ -87,7 +87,7 @@
   justify-content: flex-start;
 }
 .mannschaftenParent {
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   max-width: 1200px;
 }
@@ -95,9 +95,19 @@
   position: relative;
   background-color: #0a141b;
   align-items: center;
-  gap: 50px;
-  text-align: left;
+  text-align: center;
+  gap: 10px;
   font-size: 29px;
   color: #fff;
   font-family: "Lexend Deca";
 }
+
+.gamedaySection {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.sectionHeader {
+  background-color: #191e24;
+  padding:10px;
+  }
