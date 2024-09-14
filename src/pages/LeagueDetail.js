@@ -73,15 +73,19 @@ const LeagueDetail = () => {
         const firstMatchDate = matches[0]?.details?.date;
         if (!firstMatchDate) return '';
 
-        // Create a Date object from the first match's date
+        // Create a Date object using the date string directly
         const date = new Date(firstMatchDate);
 
-        // Format the date as So., 22.09.2024
+        // Format the date as 'So., 22.09.2024 12:00' (preserving the time as provided)
         return new Intl.DateTimeFormat('de-DE', {
             weekday: 'short',
             day: '2-digit',
             month: '2-digit',
-            year: 'numeric'
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false, // Use 24-hour format
+            timeZone: 'UTC' // Treat it as UTC to keep the time as is
         }).format(date);
     };
 
