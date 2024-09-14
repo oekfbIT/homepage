@@ -4,10 +4,14 @@ import PropTypes from "prop-types";
 import styles from "./Matchcell.module.css";
 
 // Helper function to format the date to hh:mm
+// Helper function to format the date to hh:mm without time zone conversion
 const formatTime = (dateString) => {
   if (!dateString) return "Unknown time"; // Handle missing or incorrect date
-  const date = new Date(dateString);
-  return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  // Extract the time part from the date string (ISO format assumed)
+  const timePart = dateString.split('T')[1]?.replace('Z', '').slice(0, 5); // Get the "hh:mm" part
+
+  return timePart || "Unknown time"; // Return the time or handle missing part
 };
 
 const Matchcell = ({

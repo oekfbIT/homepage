@@ -73,21 +73,20 @@ const LeagueDetail = () => {
         const firstMatchDate = matches[0]?.details?.date;
         if (!firstMatchDate) return '';
 
-        // Create a Date object using the date string directly
-        const date = new Date(firstMatchDate);
+        // Directly extract the date and time from the string, assuming the date is in UTC
+        const datePart = firstMatchDate.split('T')[0]; // "2024-11-17"
+        const timePart = firstMatchDate.split('T')[1].replace('Z', ''); // "12:00:00" -> removes 'Z' (UTC marker)
 
-        // Format the date as 'So., 22.09.2024 12:00' (preserving the time as provided)
-        return new Intl.DateTimeFormat('de-DE', {
-            weekday: 'short',
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: false, // Use 24-hour format
-            timeZone: 'UTC' // Treat it as UTC to keep the time as is
-        }).format(date);
+        // Split the date part into year, month, and day
+        const [year, month, day] = datePart.split('-');
+
+        // Extract the hours and minutes from the time part
+        const [hour, minute] = timePart.split(':');
+
+        // Format the date and time in 'dd.mm.yyyy hh:mm' format
+        return `${day}.${month}.${year} ${hour}:${minute}`;
     };
+
 
     if (!league) {
         return <div>Loading...</div>;
