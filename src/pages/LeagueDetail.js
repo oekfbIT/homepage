@@ -84,7 +84,7 @@ const LeagueDetail = () => {
         const [hour, minute] = timePart.split(':');
 
         // Format the date and time in 'dd.mm.yyyy hh:mm' format
-        return `${day}.${month}.${year} ${hour}:${minute}`;
+        return `${day}.${month}.${year}`;
     };
 
 
