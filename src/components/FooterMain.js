@@ -44,6 +44,9 @@ const FooterMain = ({ className = "" }) => {
             <a href="/ligaordnung" className={styles.sterreichischerKleinfeldFubContainer}>
               Ligaordnung
             </a>
+            <a href="/regeln" className={styles.sterreichischerKleinfeldFubContainer}>
+              Spielregeln
+            </a>
             <a href="/impressium" className={styles.sterreichischerKleinfeldFubContainer}>
               Impressum
             </a>

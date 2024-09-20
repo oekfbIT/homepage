@@ -19,6 +19,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Transfer from "./pages/Transfer";
 import Thankyou from "../src/pages/Thankyou";
 import ThankyouUpload from "../src/pages/ThankyouUpload";
+import Regeln from "../src/pages/Regeln";
 
 function App() {
   const action = useNavigationType();
@@ -87,6 +88,7 @@ function App() {
       <Route path="/player-detail" element={<PlayerDetail />} />
       <Route path="/impressium" element={<Impressium />} />
       <Route path="/ligaordnung" element={<Ligaordnung />} />
+      <Route path="/regeln" element={<Regeln />} />
       <Route path="/league/:stateName" element={<LeagueOverview />} />
       <Route path="/team-detail/:id" element={<TeamDetail />} />
       <Route path="/news/:id" element={<BlogDetail />} />
