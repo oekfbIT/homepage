@@ -14,7 +14,7 @@ const regelnData = {
         },
         {
             "title": "§ 4 – Tor Größe",
-            "content": "Die Größe des Tores ist National mit 5 Metern breit und 2 Metern Höhe festgelegt.\nInternational haben die Tore eine Breite von 4 Metern.\n"
+            "content": "Die Größe des Tores ist National mit 5 Metern breit und 2 Metern Höhe festgelegt.\nInternational haben die Tore eine Breite von 4 Metern."
         },
         {
             "title": "§ 5 – Spieleranzahl",
