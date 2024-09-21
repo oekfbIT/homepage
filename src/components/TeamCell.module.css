@@ -40,9 +40,9 @@
   height: 109px;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  justify-content: center;
+  justify-content: left;
   padding: 20px;
   box-sizing: border-box;
   min-width: 360px;

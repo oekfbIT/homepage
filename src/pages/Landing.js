@@ -15,9 +15,9 @@ const Landing = () => {
       <Navigationbar />
       <ImageHeader />
       <BundeslanderSelectionRow />
+        <Aktuell />
         <Newswrapper />
       <Nationalteam />
-      {/*<Aktuell />*/}
       {/*<Events />*/}
       <Banner />
       <FooterMain />

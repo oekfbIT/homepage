@@ -1,32 +1,35 @@
 .div {
-  position: relative;
   font-weight: 600;
-}
-.scoreitem,
-.scoreitem1 {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  top: 0;
-  right: 50%;
-  bottom: 0;
-  left: 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
-  padding: 13px;
-  box-sizing: border-box;
+  align-items: center;
 }
-.scoreitem1 {
-  right: 0;
-  left: 50%;
+
+.scoreitem, .scoreitem1, .scoreitem2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .scoreitems {
-  width: 82px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px; /* Adjust width as needed */
   height: 47px;
-  text-align: left;
   font-size: 27px;
   color: #fff;
   font-family: "Lexend Deca";
+}
+
+.scoreitem {
+  flex: 1;
+}
+
+.scoreitem1 {
+  flex: 0; /* Keep the colon centered between the two scores */
+}
+
+.scoreitem2 {
+  flex: 1;
 }

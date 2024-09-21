@@ -20,6 +20,7 @@ import Transfer from "./pages/Transfer";
 import Thankyou from "../src/pages/Thankyou";
 import ThankyouUpload from "../src/pages/ThankyouUpload";
 import Regeln from "../src/pages/Regeln";
+import Livescore from "../src/pages/Livescore";
 
 function App() {
   const action = useNavigationType();
@@ -89,6 +90,7 @@ function App() {
       <Route path="/impressium" element={<Impressium />} />
       <Route path="/ligaordnung" element={<Ligaordnung />} />
       <Route path="/regeln" element={<Regeln />} />
+        <Route path="/livescore" element={<Livescore />} />
       <Route path="/league/:stateName" element={<LeagueOverview />} />
       <Route path="/team-detail/:id" element={<TeamDetail />} />
       <Route path="/news/:id" element={<BlogDetail />} />
