@@ -67,6 +67,9 @@
   font-weight: 600;
   display: inline-block;
   max-width: 1200px;
+
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .mannschaften,
 .season20242025 {
@@ -112,3 +115,113 @@
   background-color: #191e24;
   padding:10px;
   }
+
+/*TABLE */
+/* General adjustments for table layout */
+.tableWrapper {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  width: 90vw;
+  max-width: 1200px;
+}
+
+.table {
+  width: 100%;
+  /*max-width: 700px; !* Adjust width to be more compact *!*/
+  border-collapse: collapse;
+  text-align: center; /* Center-align the content */
+  background-color: #191e25; /* Use the same dark background color */
+  color: #fff; /* Ensure text is white */
+}
+
+th, td {
+  padding: 6px 8px; /* Reduce padding */
+  font-size: 18px; /* Adjust the font size */
+  text-align: left; /* Center content within table cells */
+}
+
+.thOrange {
+  padding: 6px 8px; /* Reduce padding */
+  font-size: 14px; /* Adjust the font size */
+  text-align: left; /* Center content within table cells */
+  color: orange;
+}
+
+th {
+  background-color: #191e25; /* Dark header background */
+  color: #fff; /* White text */
+  font-weight: bold;
+  /*border-bottom: 2px solid #4d5259; !* Border for separation *!*/
+}
+
+td {
+  background-color: #0a141b; /* Darker background for rows */
+  /*border-bottom: 1px solid #4d5259; !* Border to match the color scheme *!*/
+}
+
+tr:nth-child(even) td {
+  background-color: #191e24; /* Alternate row background for better visibility */
+}
+
+.teamLogo {
+  width: 35px;
+  height: 35px;
+  object-fit: cover;
+  background-color: white;
+  padding: 1px;
+}
+
+/* Hide Win, Draw, Loss columns on mobile */
+@media (max-width: 768px) {
+
+  .table {
+    max-width: 100%; /* Make the table span the width of the screen */
+  }
+
+  th, td {
+    font-size: 12px;
+  }
+
+  .teamLogo {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    padding: 1px;
+  }
+
+  /* Hide Win, Draw, Loss columns */
+  th:nth-child(5), td:nth-child(5), /* Win (S) */
+  th:nth-child(6), td:nth-child(6), /* Draw (U) */
+  th:nth-child(7), td:nth-child(7)  /* Loss (N) */
+  {
+    display: none;
+  }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 480px) {
+  .table {
+    max-width: 100%; /* Make the table span the width of the screen */
+  }
+
+  th, td {
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .teamLogo {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Styling for the goal difference column (T) */
+.difference-positive {
+  color: orange; /* Orange for positive values */
+}
+
+.difference-negative {
+  color: orange; /* Orange for negative values */
+}

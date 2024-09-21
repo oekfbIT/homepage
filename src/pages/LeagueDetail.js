@@ -5,7 +5,7 @@ import FooterMain from '../components/FooterMain';
 import BundeslanderSelectionRow from '../components/BundeslanderSelectionRow';
 import Navigationbar from '../components/Navigationbar';
 import ApiService from '../network/ApiService';
-import Matchcell from '../components/Matchcell'; // Import the Matchcell component
+import Matchcell from '../components/Matchcell';
 import styles from './LeagueDetail.module.css';
 import { toast } from 'react-toastify';
 
@@ -13,6 +13,7 @@ const LeagueDetail = () => {
     const { id } = useParams();
     const [league, setLeague] = useState(null);
     const [matchesByGameday, setMatchesByGameday] = useState({});
+    const [leagueTable, setLeagueTable] = useState([]);
     const apiService = new ApiService();
 
     const bundeslandData = [
@@ -29,9 +30,13 @@ const LeagueDetail = () => {
 
     useEffect(() => {
         if (id) {
+            // Fetch the league data
             apiService.get(`leagues/code/${id}`)
                 .then(response => {
                     setLeague(response);
+
+                    // Extract the correct league ID from the response for the table request
+                    const leagueId = response.id;
 
                     const seasonId = response?.seasons?.[0]?.id;
                     if (seasonId) {
@@ -47,6 +52,16 @@ const LeagueDetail = () => {
                         toast.error('Season not found in the league response');
                     }
 
+                    // Use the correct league ID to fetch the league table
+                    apiService.get(`/leagues/${leagueId}/tabelle`)
+                        .then(tableResponse => {
+                            setLeagueTable(tableResponse);
+                        })
+                        .catch(error => {
+                            console.error('Error fetching league table:', error);
+                            toast.error('Error fetching league table');
+                        });
+
                     toast.success('League data fetched successfully');
                 })
                 .catch(error => {
@@ -58,7 +73,7 @@ const LeagueDetail = () => {
 
     const groupMatchesByGameday = (matches) => {
         return matches.reduce((acc, match) => {
-            const gameday = match?.details?.gameday || 'Unknown'; // Fixed gameday handling
+            const gameday = match?.details?.gameday || 'Unknown';
             if (!acc[gameday]) {
                 acc[gameday] = [];
             }
@@ -69,24 +84,12 @@ const LeagueDetail = () => {
 
     const formatGamedayDate = (matches) => {
         if (!matches.length) return '';
-
         const firstMatchDate = matches[0]?.details?.date;
         if (!firstMatchDate) return '';
-
-        // Directly extract the date and time from the string, assuming the date is in UTC
-        const datePart = firstMatchDate.split('T')[0]; // "2024-11-17"
-        const timePart = firstMatchDate.split('T')[1].replace('Z', ''); // "12:00:00" -> removes 'Z' (UTC marker)
-
-        // Split the date part into year, month, and day
+        const datePart = firstMatchDate.split('T')[0];
         const [year, month, day] = datePart.split('-');
-
-        // Extract the hours and minutes from the time part
-        const [hour, minute] = timePart.split(':');
-
-        // Format the date and time in 'dd.mm.yyyy hh:mm' format
         return `${day}.${month}.${year}`;
     };
-
 
     if (!league) {
         return <div>Loading...</div>;
@@ -96,12 +99,12 @@ const LeagueDetail = () => {
 
     return (
         <div className={styles.leagueDetail}>
-            <Navigationbar />
-            <BundeslanderSelectionRow />
+            <Navigationbar/>
+            <BundeslanderSelectionRow/>
 
             <div className={styles.ligen}>
                 <div className={styles.bundeslandCell}>
-                    <img className={styles.wappenIcon} alt={`${league?.state} wappen`} src={leagueWappen} />
+                    <img className={styles.wappenIcon} alt={`${league?.state} wappen`} src={leagueWappen}/>
                     <div className={styles.name}>
                         <a className={styles.wiener1}>{league?.name?.split(' ')[0]}</a>
                         <p className={styles.liga}>{league?.name?.split(' ')[1]}</p>
@@ -115,19 +118,65 @@ const LeagueDetail = () => {
                 <div className={styles.season20242025}>Season 2024-2025</div>
             </div>
 
-            <TeamWrapper teams={league?.teams || []} />
+            <TeamWrapper teams={league?.teams || []}/>
+
+            {/* League Table */}
+            <div className={styles.saisonStart1592024}>{league?.name} Tabelle</div>
+
+            {leagueTable.length > 0 ? (
+                <div className={styles.tableWrapper}>
+                    <table className={styles.table}>
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Logo</th>
+                            <th>Team</th>
+                            <th>Spiele</th>
+                            {/* Matches played */}
+                            <th>S</th>
+                            {/* Wins */}
+                            <th>U</th>
+                            {/* Draws */}
+                            <th>N</th>
+                            {/* Losses */}
+                            <th>TD</th>
+                            {/* Goals (scored:against) */}
+                            <th>Pkt</th>
+                            {/* Points */}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {leagueTable.map((team) => (
+                            <tr key={team.id}>
+                                <td>{team.ranking}</td>
+                                <td><img src={team.image} alt={`${team.name} logo`} className={styles.teamLogo}/></td>
+                                <td>{team.name}</td>
+                                <td>{team.wins + team.draws + team.losses}</td>
+                                {/* Total matches */}
+                                <td>{team.wins}</td>
+                                <td>{team.draws}</td>
+                                <td>{team.losses}</td>
+                                <td className={team.difference >= 0 ? styles['difference-positive'] : styles['difference-negative']}>
+                                    {team.difference >= 0 ? `+${team.difference}` : team.difference}
+                                </td>
+                                {/* Goals: scored/against */}
+                                <td>{team.points}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            ) : <div>No league table data available</div>}
+
+            <div className={styles.saisonStart1592024}>{league?.name} Spielplan</div>
 
             {/* Render matches organized by gameday */}
             {Object.keys(matchesByGameday).map(gameday => {
-                // Filter matches by valid date
                 const filteredMatches = matchesByGameday[gameday].filter(match => match?.details?.date);
-
-                // Only render the section if there are filtered matches
                 if (filteredMatches.length === 0) return null;
-
-                // Get the formatted date from the first match of the gameday
                 const formattedDate = formatGamedayDate(filteredMatches);
-
                 return (
                     <div key={gameday} className={styles.gamedaySection}>
                         <h3 className={styles.sectionHeader}>
@@ -136,14 +185,14 @@ const LeagueDetail = () => {
                         {filteredMatches.map(match => (
                             <Matchcell
                                 key={match.id}
-                                matchData={match}  // Pass the entire match data
+                                matchData={match}
                             />
                         ))}
                     </div>
                 );
             })}
 
-            <FooterMain />
+            <FooterMain/>
         </div>
     );
 };
