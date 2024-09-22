@@ -3,7 +3,6 @@ import Scoreitems from "./Scoreitems";
 import PropTypes from "prop-types";
 import styles from "./Matchcell.module.css";
 
-// Helper function to format the date to hh:mm
 // Helper function to format the date to hh:mm without time zone conversion
 const formatTime = (dateString) => {
   if (!dateString) return "Unknown time"; // Handle missing or incorrect date
@@ -32,10 +31,10 @@ const Matchcell = ({
   // Correct fields for home and away teams
   const homeTeamName = matchData?.home_blanket?.name || 'Home Team';
   const awayTeamName = matchData?.away_blanket?.name || 'Away Team';
-  const scoreHome = matchData?.score?.home?.$numberLong || 0;
-  const scoreAway = matchData?.score?.away?.$numberLong || 0;
-  const homeTeamLogo = matchData.home_blanket?.logo || '/default-logo.png';
-  const awayTeamLogo = matchData.away_blanket?.logo || '/default-logo.png';
+  const scoreHome = matchData?.score?.home || 0; // Fixed score access
+  const scoreAway = matchData?.score?.away || 0; // Fixed score access
+  const homeTeamLogo = matchData?.home_blanket?.logo || '/default-logo.png';
+  const awayTeamLogo = matchData?.away_blanket?.logo || '/default-logo.png';
 
   return (
       <div className={[styles.matchcell, className].join(" ")} style={matchcellStyle}>
@@ -48,7 +47,7 @@ const Matchcell = ({
             <div className={styles.teamData}>
               <div className={styles.hometeam}>
                 <div className={styles.teamNameL}>{homeTeamName}</div>
-                <img className={styles.teamLogo} alt="Home Team Logo" src={homeTeamLogo}/>
+                <img className={styles.teamLogo} alt="Home Team Logo" src={homeTeamLogo} />
               </div>
               <Scoreitems scoreitemsPosition="relative" homeScore={scoreHome} awayScore={scoreAway} />
               <div className={styles.awayteam}>

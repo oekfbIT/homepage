@@ -15,7 +15,7 @@
 .logoIcon {
   width: 95px;
   height: 125px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .textContainer {

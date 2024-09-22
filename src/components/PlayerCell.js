@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./PlayerCell.module.css";
 
-const PlayerCell = ({ className = "", name, nationality, birthday, position, image, eligibility }) => {
+const PlayerCell = ({ className = "", name, nationality, birthday, position, image, eligibility, sid }) => {
     // Function to return the correct class based on eligibility
     const getEligibilityClass = (eligibility) => {
         switch (eligibility) {
@@ -29,6 +29,7 @@ const PlayerCell = ({ className = "", name, nationality, birthday, position, ima
             <img className={styles.logoIcon} alt={name} src={getImageSrc(eligibility, image)} />
             <div className={styles.textContainer}>
                 <div className={styles.name}>{name}</div>
+                <div className={styles.info}>SID: {sid}</div>
                 <div className={styles.info}>{`${nationality}, ${birthday}`}</div>
                 <div className={styles.position}>{position}</div>
                 <div className={getEligibilityClass(eligibility)}>{eligibility}</div>

@@ -27,6 +27,7 @@ const Playerslist = ({ className = "", players }) => {
                     position={player.position}
                     image={player.image}
                     eligibility={player.eligibility}
+                    sid={player.sid}
                 />
             ))}
       </div>
