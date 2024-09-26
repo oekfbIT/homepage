@@ -16,8 +16,12 @@ const FooterMain = ({ className = "" }) => {
             <p className={styles.blankLine}>&nbsp;</p>
             <p className={styles.blankLine}>1020 Wien, Pazmanitengasse 15/7</p>
             <p className={styles.blankLine}>ÖKFB </p>
-            <p className={styles.blankLine}>office@oekfb.eu</p>
-            <p className={styles.blankLine}>support@oekfb.eu</p>
+
+            <div style={{marginTop: "10px", gap: "3px"}}>
+              <p className={styles.blankLine}>office@oekfb.eu</p>
+              <p className={styles.blankLine}>support@oekfb.eu</p>
+              <p className={styles.blankLine}>strafsenat@oekfb.eu</p>
+            </div>
           </div>
           <div className={styles.socialIcons}>
             <a

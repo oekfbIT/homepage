@@ -6,17 +6,17 @@
 .sterreichischerKleinfeld {
   margin: 0;
   font-weight: 800;
-}
+  }
 .blankLine {
   margin: 0;
   font-weight: 500;
 }
+
 .sterreichischerKleinfeldFubContainer {
   align-self: stretch;
   position: relative;
   text-decoration: none; /* Removes the underline */
   color: #fff; /* Sets the link text color to white */
-
 }
 .vectorIcon {
   position: absolute;
