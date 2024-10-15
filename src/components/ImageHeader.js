@@ -12,40 +12,25 @@ const ImageHeader = ({ className = "" }) => {
               Saisonstart
             </p>
             <p className={styles.toCelebrateBundesliga}>
-              Wichtiges update bis 22.9.2024,
+              Große Website-Aktualisierung in Kalenderwoche 44,
             </p>
             <p className={styles.toCelebrateBundesliga}>
-              Sehr geehrte Mannschaftsleiter,,
+              Sehr geehrte Mannschaftsleiter,
             </p>
           </div>
           <div className={styles.toCelebrateBundesliga}>
             <p>
-              wie sie sicher schon gemerkt haben, gab es immer wieder Updates und kleine technische Probleme auf der
-              Homepage.
-              Um einen fehlerlosen Saisonstart zu ermöglichen wird der Start um eine Woche auf den 22.09.2024
-              verschoben.
-              Der Spielplan wird am 11.09.2024 für alle ersichtlich sein.
+              Wie lange versprochen, wird unsere Website in Kalenderwoche 44 ein großes Update erhalten! Es erwarten euch viele neue Features und detaillierte Statistiken.
+              Auch die Spielberichte werden zukünftig sichtbar sein, zusammen mit vielen weiteren spannenden Funktionen.
             </p>
             <p>
-              Wir entschuldigen uns und bitten um Verständnis.
-            </p>
-            <p>
-              In diesem Zuge wollen wir auch alle Teamleiter noch einmal daran erinnern, dass sie bitte ihre Spieler spielberechtigen um für das erste Spiel bereit zu sein.
+              Hinter der Website steckt viel Arbeit und ein komplexes System, das im Hintergrund reibungslos laufen muss. Leider kam es in den letzten Wochen zu einigen unerwarteten Fehlern, die behoben werden mussten, wodurch sich die Einführung der neuen Features etwas verzögerte.
+              Wir entschuldigen uns dafür aufrichtig und bitten um Verständnis – wir benötigen noch etwa zwei Wochen, um alles perfekt zu finalisieren.
             </p>
 
             <p>
-              Desweiteren wollen wir noch einmal erwähnen, dass das Design und die Funktionen der Homepage noch nicht Final sind, ein Spielbetrieb jedoch möglich ist.
-              In Zukunft wird die Bearbeitung von Spieleranmeldungen, Nachrichten etc. viel schneller erfolgen und euch die Arbeit erleichtert.
-            </p>
-
-            <p>
-              Vor Saisonstart kommt ein Bericht auf der Homepage wo euch die Änderungen im Verband vorgestellt werden.
-              Außerdem wird es noch einmal eine kleine Anpassung in der Ligaordnung geben.
-
-            </p>
-
-            <p>
-              Wir freuen uns auf die Saison, wünschen allen einen guten Start am 22.09.2024.
+              Vielen Dank für eure Geduld und euer Verständnis!
+              Euer ÖKFB-Team
             </p>
           </div>
         </div>
