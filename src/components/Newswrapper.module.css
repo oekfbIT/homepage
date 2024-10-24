@@ -15,10 +15,23 @@
 
 .newsitems {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Grid layout */
-  gap: 30px; /* Spacing between grid items */
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Default for desktop */
   width: 100%; /* Ensure it spans the entire width of the parent */
   justify-content: center; /* Center the grid items */
+}
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .newsitems {
+    grid-template-columns: repeat(3, minmax(200px, 1fr)); /* 3 columns for tablets */
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .newsitems {
+    grid-template-columns: repeat(2, minmax(200px, 1fr)); /* 2 columns for mobile */
+  }
 }
 
 .newsNeuheitenParent {

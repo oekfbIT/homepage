@@ -39,6 +39,8 @@ const Newswrapper = ({ className = "" }) => {
                         image1={item.image}
                         text={item.text}
                         date={item.created}
+                        title={item.title}
+                        tag={item.tag}
                     />
                 ))}
             </div>
