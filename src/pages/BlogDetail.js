@@ -7,7 +7,7 @@ import Navigationbar from "../components/Navigationbar";
 import { toast } from "react-toastify";
 
 const BlogDetail = () => {
-    const { id } = useParams();  // Get the ID from the URL
+    const { id } = useParams();
     const [newsItem, setNewsItem] = useState(null);
     const apiService = new ApiService();
 

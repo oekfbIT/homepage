@@ -16,7 +16,10 @@ const Newswrapper = ({ className = "" }) => {
                 // Extract the 'items' array from the response
                 const newsArray = response.items || [];
 
-                setNewsItems(newsArray);
+                // Sort news items by date, with the newest items first
+                const sortedNewsArray = newsArray.sort((a, b) => new Date(b.created) - new Date(a.created));
+
+                setNewsItems(sortedNewsArray);
             } catch (error) {
                 console.error("Failed to fetch news items:", error);
             }
@@ -35,7 +38,7 @@ const Newswrapper = ({ className = "" }) => {
                 {newsItems.map((item) => (
                     <NewsItem
                         key={item.id}
-                        id={item.id}  // Pass the id to the NewsItem component
+                        id={item.id}
                         image1={item.image}
                         text={item.text}
                         date={item.created}
