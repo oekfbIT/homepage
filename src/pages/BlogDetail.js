@@ -46,7 +46,8 @@ const BlogDetail = () => {
                     className={styles.blogImage}
                 />
                 <div className={styles.blogText}>
-                    <h4>{new Date(newsItem.created).toLocaleDateString()}</h4>
+                    <h1 style={{color: "orange"}}>{newsItem.title}</h1>
+                    <p style={{textDecoration: "underline" , fontSize: "14px"}}>{new Date(newsItem.created).toLocaleDateString()}</p>
                     {newsItem.text.split('\n').map((line, index) => (
                         line.trim() !== '' && <p key={index}>{line}</p>
                     ))}
