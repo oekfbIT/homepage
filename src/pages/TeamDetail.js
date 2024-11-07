@@ -11,6 +11,7 @@ import styles from './TeamDetail.module.css';
 const TeamDetail = () => {
     const { id } = useParams();
     const [team, setTeam] = useState(null);
+    const [league, setLeague] = useState(null); // State to hold league data
     const apiService = new ApiService();
 
     useEffect(() => {
@@ -18,6 +19,18 @@ const TeamDetail = () => {
             apiService.get(`teams/${id}/players`)
                 .then(response => {
                     setTeam(response);
+
+                    // Fetch league data after team data is available
+                    const leagueId = response.league.id;
+                    if (leagueId) {
+                        apiService.get(`leagues/${leagueId}`)
+                            .then(leagueResponse => {
+                                setLeague(leagueResponse);
+                            })
+                            .catch(error => {
+                                console.error('Error fetching league:', error);
+                            });
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching team:', error);
@@ -38,7 +51,7 @@ const TeamDetail = () => {
                 logo={team.logo}
                 trikot={team.trikot}
                 name={team.team_name}
-                league={`Liga: ${team.league}`}
+                league={`Liga: ${league ? league.name : 'Loading...'}`} // Display league name or loading state
                 membership_since={`Im Verband seit: ${team.membership_since}`}
                 average_age={`Altersdurchschn.: ${team.average_age}`}
                 foundation_year={`Gründungsjahr: ${team.foundation_year}`}
