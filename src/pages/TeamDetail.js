@@ -21,7 +21,7 @@ const TeamDetail = () => {
                     setTeam(response);
 
                     // Fetch league data after team data is available
-                    const leagueId = response.league.id;
+                    const leagueId = response.league;
                     if (leagueId) {
                         apiService.get(`leagues/${leagueId}`)
                             .then(leagueResponse => {
