@@ -31,7 +31,7 @@ const NewsStrafsenatwrapper = ({ className = "" }) => {
     return (
         <div className={[styles.newswrapper, className].join(" ")}>
             <div className={styles.newsNeuheitenParent}>
-                <div className={styles.newsNeuheiten}>Neuheiten Strafsenat</div>
+                <div className={styles.newsNeuheiten}>Entscheidungen Strafsenat</div>
                 <div className={styles.allePosts}>Alle Posts</div>
             </div>
             <div className={styles.newsitems}>
