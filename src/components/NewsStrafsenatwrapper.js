@@ -4,14 +4,14 @@ import styles from "./Newswrapper.module.css";
 import ApiService from "../network/ApiService";
 import NewsItem from "./NewsItem";
 
-const Newswrapper = ({ className = "" }) => {
+const NewsStrafsenatwrapper = ({ className = "" }) => {
     const [newsItems, setNewsItems] = useState([]);
 
     useEffect(() => {
         const fetchNews = async () => {
             try {
                 const apiService = new ApiService();
-                const response = await apiService.get('news/all?per=25');
+                const response = await apiService.get('news/strafsenat?per=25');
 
                 // Assuming the response itself is the array of news items
                 const newsArray = response || [];
@@ -31,7 +31,7 @@ const Newswrapper = ({ className = "" }) => {
     return (
         <div className={[styles.newswrapper, className].join(" ")}>
             <div className={styles.newsNeuheitenParent}>
-                <div className={styles.newsNeuheiten}>News & Neuheiten</div>
+                <div className={styles.newsNeuheiten}>Neuheiten Strafsenat</div>
                 <div className={styles.allePosts}>Alle Posts</div>
             </div>
             <div className={styles.newsitems}>
@@ -51,8 +51,8 @@ const Newswrapper = ({ className = "" }) => {
     );
 };
 
-Newswrapper.propTypes = {
+NewsStrafsenatwrapper.propTypes = {
     className: PropTypes.string,
 };
 
-export default Newswrapper;
+export default NewsStrafsenatwrapper;

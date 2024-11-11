@@ -8,6 +8,7 @@ import Banner from "../components/Banner";
 import Newswrapper from "../components/Newswrapper";
 import FooterMain from "../components/FooterMain";
 import styles from "./Landing.module.css";
+import NewsStrafsenatwrapper from "../components/NewsStrafsenatwrapper";
 
 const Landing = () => {
   return (
@@ -17,8 +18,9 @@ const Landing = () => {
       <BundeslanderSelectionRow />
         <Aktuell />
         <Newswrapper />
-      <Nationalteam />
-      {/*<Events />*/}
+        <Nationalteam />
+        <NewsStrafsenatwrapper />
+        {/*<Events />*/}
       <Banner />
       <FooterMain />
     </div>
