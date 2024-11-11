@@ -18,8 +18,8 @@ const Landing = () => {
       <BundeslanderSelectionRow />
         <Aktuell />
         <Newswrapper />
-        <Nationalteam />
         <NewsStrafsenatwrapper />
+        <Nationalteam />
         {/*<Events />*/}
       <Banner />
       <FooterMain />
