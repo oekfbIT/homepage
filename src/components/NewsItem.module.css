@@ -3,6 +3,7 @@
   object-fit: cover;
   min-height: 180px;
   max-width: 100%;
+  width: 100%;
 }
 .content {
   margin: 0;
@@ -39,6 +40,7 @@
   height: 100%;
   justify-content: space-between;
   gap: 5.9px;
+  min-width: 234px;
 }
 .newsItem,
 .bundWrapper {
